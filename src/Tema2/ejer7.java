@@ -4,13 +4,17 @@ import java.util.Scanner;
 
 public class ejer7 {
     public static void main(String[] args) {
-        double dolares = 1.09;
-        System.out.println("dime la cantidad que quieras pasar de euros a dolares");
-        Scanner user = new Scanner(System.in);
-        double num = user.nextDouble();
-        System.out.println(" en dolares es " + num * dolares);
+        Scanner usernum = new Scanner(System.in);
+        System.out.println("dime un numero");
+        double num1 = usernum.nextDouble();
+        System.out.println("dime otro numero");
+        double num2 = usernum.nextDouble();
+         if (num1 > num2){
+             System.out.println("el resultado es " + (num1 - num2));
 
+         } else {
+             System.out.println("el resultado es " + (num2 - num1));
 
-
+         }
     }
 }
