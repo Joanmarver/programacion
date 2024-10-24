@@ -20,5 +20,6 @@ public class ejer14 {
             precio = 15 * dias;
         }
         System.out.println(" os costará " + precio);
+        usernum.close();
     }
 }

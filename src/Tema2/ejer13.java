@@ -24,6 +24,6 @@ public class ejer13 {
             horas = horas + 1;
         }
         System.out.println(" son las " + horas+":"+ minutos+":"+segundos);
-
+        usernun.close();
     }
 }
