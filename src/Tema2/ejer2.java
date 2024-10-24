@@ -11,7 +11,7 @@ public class ejer2 {
         double altura = user.nextDouble();
         System.out.println("el area es " + base * altura);
         System.out.println(" el perimetro es " + (base*2 + altura*2));
-
+        user.close();
 
     }
 }

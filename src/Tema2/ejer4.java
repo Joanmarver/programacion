@@ -19,5 +19,6 @@ public class ejer4 {
         } else {
             System.out.println(" el numero mayor es " + num3);
         }
+        user.close();
     }
 }

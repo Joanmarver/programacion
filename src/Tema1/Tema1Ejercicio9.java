@@ -10,8 +10,7 @@ public class Tema1Ejercicio9 {
         Scanner num1 = new Scanner(System.in);
         int numen_uno = num1.nextInt();
         System.out.println("dime otro numero entero");
-        Scanner num2 = new Scanner(System.in);
-        int numen_dos = num2.nextInt();
+        int numen_dos = num1.nextInt();
 
         int suma = numen_uno + numen_dos;
         double resta = numen_uno - numen_dos;
@@ -28,7 +27,7 @@ public class Tema1Ejercicio9 {
         System.out.println("el producto es " + prod);
         System.out.println("la division es " + div );
         System.out.println("el resto es " + resto);
-
+        num1.close();
     }
 
 }

@@ -14,5 +14,6 @@ public class Tema1Ejercicio7 {
        }else {
            System.out.println("no es un valor correcto");
        }
+       valoruser.close();
 }
 }

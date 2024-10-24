@@ -19,6 +19,6 @@ public class ejer5 {
         System.out.println(String.format(String.format("la media sin decimales es " + truncado.format(media))));
         System.out.println("la media con decimales es "+ ((num1 + num2 + num3) / 3));
 
-
+        user.close();
     }
 }

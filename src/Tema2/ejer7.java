@@ -16,5 +16,6 @@ public class ejer7 {
              System.out.println("el resultado es " + (num2 - num1));
 
          }
+         usernum.close();
     }
 }

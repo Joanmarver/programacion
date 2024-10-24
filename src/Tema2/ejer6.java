@@ -15,5 +15,6 @@ public class ejer6 {
         } else {
             System.out.println("es un numero positivo");
         }
+        usernum.close();
     }
 }

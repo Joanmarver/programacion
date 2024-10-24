@@ -9,6 +9,6 @@ public class Tema1Ejercicio6 {
         double Radio= num.nextDouble();
         double area = 3.14 * Radio * Radio;
         System.out.println("el area de un circulo es " + area);
-
+        num.close();
     }
 }

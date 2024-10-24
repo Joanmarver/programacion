@@ -9,7 +9,7 @@ public class ejer1 {
         double lado = user.nextDouble();
         System.out.println("el area es " + (lado * lado));
         System.out.println("el perimetro es " + (lado * 4));
-
+        user.close();
 
 
     }

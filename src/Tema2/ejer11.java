@@ -19,6 +19,7 @@ public class ejer11 {
         } else {
             System.out.println("no son consecutivos");
         }
+        usernum.close();
 
     }
 }

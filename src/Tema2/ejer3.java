@@ -10,5 +10,6 @@ public class ejer3 {
         System.out.println("dime la altura del triangulo");
         double altura = user.nextDouble();
         System.out.println("el area es " + base * altura / 2);
+        user.close();
     }
 }

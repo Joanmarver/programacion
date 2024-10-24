@@ -27,5 +27,6 @@ public class Tema1Ejercicio10 {
         System.out.println("el producto es " + prod);
         System.out.println("la division es " + div );
         System.out.println("el resto es " + resto);
+        num1.close();
     }
 }

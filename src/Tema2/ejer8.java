@@ -9,7 +9,7 @@ public class ejer8 {
         Scanner user = new Scanner(System.in);
         double num = user.nextDouble();
         System.out.println(" en dolares es " + num * dolares);
-
+        user.close();
 
 
     }

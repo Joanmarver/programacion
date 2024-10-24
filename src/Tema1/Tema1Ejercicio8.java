@@ -20,7 +20,7 @@ public class Tema1Ejercicio8 {
                 System.out.println("el numero mayor es " + numen_dos);
             }
         }
-
+        num1.close();
 
     }
 }

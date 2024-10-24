@@ -19,6 +19,7 @@ public class ejer10 {
         } else {
             System.out.println("no estan ordenados");
         }
+        usernum.close();
     }
 
 }
