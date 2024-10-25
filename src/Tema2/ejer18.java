@@ -14,6 +14,6 @@ public class ejer18 {
         } else {
             System.out.println(" la raiz es " + raiz);
         }
-
+        numuser.close();
     }
 }

@@ -32,6 +32,6 @@ public class ejer17 {
             areatri = basetri * alttri / 2;
             System.out.println("el area es " + areatri);
         }
-
+        numuser.close();
     }
 }

@@ -23,6 +23,6 @@ public class ejer16 {
                 System.out.println("el total es " + dinero );
                 break;
         }
-
+        usernum.close();
     }
 }
