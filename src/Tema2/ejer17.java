@@ -10,14 +10,16 @@ public class ejer17 {
         Scanner numuser =new Scanner(System.in);
         System.out.println("pulsa el numero 0 si quieres que muestre el area y perimetro de un cuadrado, el 1 para area y perimtreo de un rectangulo y 2 para el area de un triangulo");
         num1 = numuser.nextInt();
-        if (num1 == 0) {
+        switch (num1)  {
+        case 0 -> {
             System.out.println("ahora dime el lado del cuadrado");
             ladocua = numuser.nextDouble();
             areacua = ladocua * ladocua;
             percua = ladocua * 4;
             System.out.println(" el resultado del area es " + areacua + " y el perimetro es " + percua);
         }
-        if (num1 == 1) {
+
+        case 1 -> {
             System.out.println("dime la base del rectangulo y la altura");
             lado1 = numuser.nextDouble();
             altrec =numuser.nextDouble();
@@ -25,13 +27,14 @@ public class ejer17 {
             perrec= altrec * 2 + lado1 * 2;
             System.out.println("el area es " + arearec + " y el perimetro es "+ perrec);
         }
-        if (num1 == 2) {
+
+        case 2 -> {
             System.out.println("dime la base y la altura del triangulo");
             basetri = numuser.nextDouble();
             alttri = numuser.nextDouble();
             areatri = basetri * alttri / 2;
             System.out.println("el area es " + areatri);
         }
-        numuser.close();
-    }
-}
+        default -> System.out.println("error");
+    } numuser.close();
+}}

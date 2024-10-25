@@ -19,10 +19,14 @@ public class ejer13 {
             segundos = segundos - 60;
             minutos = minutos + 1;
         }
-        if (horas >=60) {
+        if (minutos >=60) {
             minutos = minutos - 60;
             horas = horas + 1;
         }
+        if (horas >=24){
+            horas = horas - 24;
+        }
+
         System.out.println(" son las " + horas+":"+ minutos+":"+segundos);
         usernun.close();
     }
