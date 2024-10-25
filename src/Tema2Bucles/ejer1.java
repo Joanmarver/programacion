@@ -11,7 +11,7 @@ public class ejer1 {
             }
 
         }
-
+/* otra forma de hacerlo
     while (nummin < nummax) {
         if (nummin % 2 == 0) {
             System.out.println(nummin);
@@ -19,6 +19,6 @@ public class ejer1 {
         } else {
             nummin = nummin + 1;
         }
-    }
+    } */
     }
 }

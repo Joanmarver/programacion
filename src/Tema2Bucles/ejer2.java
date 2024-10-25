@@ -10,7 +10,12 @@ public class ejer2 {
         A = numuser.nextInt();
         B = numuser.nextInt();
         while (A < B) {
-
+            if ( A % 2 != 0){
+                System.out.println(A);
+                A++;
+            } else {
+                A++;
+            }
         }
     }
 }
