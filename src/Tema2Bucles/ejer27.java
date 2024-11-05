@@ -1,5 +1,7 @@
 package Tema2Bucles;
 
+import java.util.Scanner;
+
 public class ejer27 {
     public static void main(String[] args) {
         int cont, num1;
@@ -13,6 +15,9 @@ public class ejer27 {
                 num1++;
             } else num1++;
         }
+
+
+
 
     }
 }
