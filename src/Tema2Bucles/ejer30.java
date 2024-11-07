@@ -6,14 +6,19 @@ public class ejer30 {
         // ejercio importante!!
         Scanner usernum = new Scanner(System.in);
         String operacion;
+        boolean bucle;
+        bucle = true;
         //
-        while (true) {
+        while (bucle) {
             // Pedir primer número. Lo guardamos como string para que si usa la palabra "exit" pueda salir del programa
             System.out.print("Ingresa el primer número: ");
-            String user = usernum.nextLine();
+            String user = usernum.next();
             // el if significa que si el usuario pone la palabra "exit" , salga el programa
-            // "input.equalsIgnoreCase" significa que compara las striings sin tener en cuenta que estan en mayusculas o minusculas
-            if (user.equalsIgnoreCase("exit")) break;
+            // "user.equalsIgnoreCase" significa que compara las striings sin tener en cuenta que estan en mayusculas o minusculas
+            if (user.equalsIgnoreCase("exit")) {
+                bucle=false;
+                continue;
+            }
             // creamos la variable numero 1 para almacenar lo que hemos recibido
             double numero1;
             // comando try y catch : sirven para capturar errores. lo que estoy diciendo es que mire si lo que ha puesto es correcto.
@@ -30,7 +35,10 @@ public class ejer30 {
             // Pedir operación
             System.out.print("Ingresa una operación (+, -, *, /, %): ");
             operacion = usernum.nextLine();
-            if (operacion.equalsIgnoreCase("exit")) break;
+            if (operacion.equalsIgnoreCase("exit")) {
+                bucle=false;
+                continue;
+            }
             // usamos el metodo matches para que compruebe si coincide o no con los caracteres de la variable operación
             // en este caso como delante de la variable esta el "!" significa que si no coincide , muestre el mensaje
             if (!operacion.matches("[+*/%]")) {
@@ -41,7 +49,7 @@ public class ejer30 {
             // Pedir segundo número , igual  que el primero
             System.out.print("Ingresa el segundo número: ");
             user = usernum.nextLine();
-            if (user.equalsIgnoreCase("exit")) break;
+            if (user.equalsIgnoreCase("exit")) bucle = false;
 
             double numero2;
             try {
