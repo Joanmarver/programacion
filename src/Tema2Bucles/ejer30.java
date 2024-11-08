@@ -34,21 +34,21 @@ public class ejer30 {
 
             // Pedir operación
             System.out.print("Ingresa una operación (+, -, *, /, %): ");
-            operacion = usernum.nextLine();
+            operacion = usernum.next();
             if (operacion.equalsIgnoreCase("exit")) {
                 bucle=false;
                 continue;
             }
             // usamos el metodo matches para que compruebe si coincide o no con los caracteres de la variable operación
             // en este caso como delante de la variable esta el "!" significa que si no coincide , muestre el mensaje
-            if (!operacion.matches("[+*/%]")) {
+            if (!operacion.matches("[+\\-*/%]")) {
                 System.out.println("Operación inválida. Intenta nuevamente.");
                 continue;
             }
 
             // Pedir segundo número , igual  que el primero
             System.out.print("Ingresa el segundo número: ");
-            user = usernum.nextLine();
+            user = usernum.next();
             if (user.equalsIgnoreCase("exit")) bucle = false;
 
             double numero2;
