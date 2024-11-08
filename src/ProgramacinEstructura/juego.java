@@ -35,7 +35,7 @@ public class juego {
             }
             TimerTask mant = new TimerTask() {
                 public void run() {
-                    System.out.println("No os preocupeis, Os pongo otra vez las normas");
+                    System.out.println("EMPEZAMOS");
                 }
 
             };
@@ -44,17 +44,17 @@ public class juego {
 
         }
         else if (conf == 2) {
-            TimerTask mant = new TimerTask() {
-                public void run() {
-                    System.out.println("No os preocupeis, te pongo otra vez las normas");
-                }
-
-            };
-            timer.schedule(mant,0);
-
             for (int i=0; i < 50; i++){
                 System.out.println();
             }
+            TimerTask mant = new TimerTask() {
+                public void run() {
+                    System.out.println("No os preocupeis, Os pongo otra vez las normas");
+                }
+
+            };
+            timer.schedule(mant,0,1000);
+
             continue;
         } else {
             System.out.println("ERROR");
