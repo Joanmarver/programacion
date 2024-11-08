@@ -14,7 +14,7 @@ public class juego {
         boolean confirmar,inicio;
         confirmar = true;
         inicio = true;
-
+        Timer timer = new Timer();
         while (inicio) {
         System.out.println("Hola, bienvenidos a FIGHT SIMULATOR4");
         System.out.println("Explicación basica de las reglas :" + "\n" + "Tendremos los siguientes atributos:" );
@@ -30,32 +30,36 @@ public class juego {
         System.out.println("Si lo habeis entendo pulsa '1' si no pulsa '2'");
         int conf = userprint.nextInt();
         if (conf == 1) {
-            Timer timer = new Timer();
-            TimerTask mant2 = new TimerTask() {
-                public void run () {
-                    System.out.println("PUES EMPEZAMOS");
-                }
-            };
-            timer.schedule(mant2, 0, 658764675);
-            for (int i=0; i < 50; i++){
+            for (int i=0; i < 100; i++){
                 System.out.println();
             }
+            TimerTask mant = new TimerTask() {
+                public void run() {
+                    System.out.println("No os preocupeis, Os pongo otra vez las normas");
+                }
+
+            };
+            timer.schedule(mant,0);
+
+
         }
         else if (conf == 2) {
-            Timer timer = new Timer();
             TimerTask mant = new TimerTask() {
                 public void run() {
                     System.out.println("No os preocupeis, te pongo otra vez las normas");
                 }
 
             };
-            timer.schedule(mant,5000000);
+            timer.schedule(mant,0);
 
             for (int i=0; i < 50; i++){
                 System.out.println();
             }
             continue;
-        }
+        } else {
+            System.out.println("ERROR");
+            continue;
+        };
         }
 
 
