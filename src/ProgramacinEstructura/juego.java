@@ -124,6 +124,9 @@ public class juego {
             espacio = userprint.nextLine();
             do {
 
+
+            do {
+
             if (espacio.isEmpty()) {
                 if (velocidad1 > velocidad2) {
                     System.out.println("ATACA EL JUGADOR 1");
@@ -180,73 +183,72 @@ public class juego {
                     continue;
                 } else if (vida2 <= 0) {
                     System.out.println("GANA EL JUGADOR 1");
-                    continue;
+                    inicio = false;
                 } else {
                     System.out.println("TURNO DEL siguiente jugador");
                     espacio = userprint.nextLine();
-                    continue;
                 }
             }
 
             }while (vida1 <= 0 || vida2 <= 0);
             do {
 
-                    if (velocidad1 < velocidad2) {
-                        System.out.println("ATACA EL JUGADOR 1");
+                if (velocidad1 < velocidad2) {
+                    System.out.println("ATACA EL JUGADOR 1");
+                    espacio = userprint.nextLine();
+                    total1 = ataque1 - defensa2;
+                    if (total1 >= 0) {
+                        totalata = random.nextInt(ataque1);
+                        totalata = totalata + 10;
+                        System.out.println("EL JUGADOR 1 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
+                        vida2 = vida2 - totalata;
                         espacio = userprint.nextLine();
-                        total1 = ataque1 - defensa2;
-                        if (total1 >= 0) {
-                            totalata = random.nextInt(ataque1);
-                            totalata = totalata + 10;
-                            System.out.println("EL JUGADOR 1 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
-                            vida2 = vida2 - totalata;
-                            espacio = userprint.nextLine();
-                            System.out.println("VIDA RESTANTE DEL JUGADOR 2 " + vida2);
-                            espacio = userprint.nextLine();
-                        } else {
-                            totalata = random.nextInt(ataque1);
-                            totalata = totalata - 10;
-                            System.out.println("EL JUGADOR 1 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
-                            vida2 = vida2 - totalata;
-                            espacio = userprint.nextLine();
-                            System.out.println("VIDA RESTANTE DEL JUGADOR 2 " + vida2);
-                            espacio = userprint.nextLine();
-
-                        }
-
+                        System.out.println("VIDA RESTANTE DEL JUGADOR 2 " + vida2);
+                        espacio = userprint.nextLine();
                     } else {
-                        System.out.println("ATACA EL JUGADOR 2");
+                        totalata = random.nextInt(ataque1);
+                        totalata = totalata - 10;
+                        System.out.println("EL JUGADOR 1 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
+                        vida2 = vida2 - totalata;
                         espacio = userprint.nextLine();
-                        total1 = ataque2 - defensa1;
-                        if (total1 >= 0) {
-                            totalata = random.nextInt(ataque2);
-                            totalata = totalata + 10;
-                            System.out.println("EL JUGADOR 2 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
-                            vida1 = vida1 - totalata;
-                            espacio = userprint.nextLine();
-                            System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
-                            espacio = userprint.nextLine();
-                        } else {
-                            totalata = random.nextInt(ataque2);
-                            totalata = totalata - 10;
-                            System.out.println("EL JUGADOR 2 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
-                            vida1 = vida1 - totalata;
-                            espacio = userprint.nextLine();
-                            System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
-                            espacio = userprint.nextLine();
-                        }
+                        System.out.println("VIDA RESTANTE DEL JUGADOR 2 " + vida2);
+                        espacio = userprint.nextLine();
+
                     }
-                    if (vida1 <= 0) {
-                        System.out.println("GANA EL JUGADOR 2");
-                        continue;
-                    } else if (vida2 <= 0) {
-                        System.out.println("GANA EL JUGADOR 1");
-                        continue;
+
+                } else {
+                    System.out.println("ATACA EL JUGADOR 2");
+                    espacio = userprint.nextLine();
+                    total1 = ataque2 - defensa1;
+                    if (total1 >= 0) {
+                        totalata = random.nextInt(ataque2);
+                        totalata = totalata + 10;
+                        System.out.println("EL JUGADOR 2 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
+                        vida1 = vida1 - totalata;
+                        espacio = userprint.nextLine();
+                        System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
+                        espacio = userprint.nextLine();
                     } else {
-                        System.out.println("TURNO DEL siguiente jugador");
+                        totalata = random.nextInt(ataque2);
+                        totalata = totalata - 10;
+                        System.out.println("EL JUGADOR 2 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
+                        vida1 = vida1 - totalata;
                         espacio = userprint.nextLine();
-                        continue;
+                        System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
+                        espacio = userprint.nextLine();
                     }
+                }
+                if (vida1 <= 0) {
+                    System.out.println("GANA EL JUGADOR 2");
+                    inicio = false;
+                } else if (vida2 <= 0) {
+                    System.out.println("GANA EL JUGADOR 1");
+                    inicio = false;
+                } else {
+                    System.out.println("SIGUIENTE RONDA");
+                    espacio = userprint.nextLine();
+                }
+            }while(vida1 <= 0 || vida2 <=0);
 
 
             }while (vida1 <= 0 || vida2 <= 0);
