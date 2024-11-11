@@ -205,7 +205,7 @@ public class juego {
                             espacio = userprint.nextLine();
                         } else {
                             totalata = random.nextInt(ataque1);
-                            totalata = totalata - 10
+                            totalata = totalata - 10;
                             System.out.println("EL JUGADOR 1 LANZA UN  ATAQUE DE " + totalata + " DAÑO");
                             vida2 = vida2 - totalata;
                             espacio = userprint.nextLine();
