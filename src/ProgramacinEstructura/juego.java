@@ -456,32 +456,32 @@ public class juego {
                                 do {
                                     System.out.println("VELOCIDAD");
                                     velocidad1 = userprint.nextInt();
-                                    if (velocidad2 < 1 || velocidad2 > 200) {
+                                    if (velocidad1 < 1 || velocidad1 > 200) {
                                         System.out.println("VALOR INCORRECTO");
                                     }
-                                }while (velocidad2 < 1 || velocidad2 > 200);
+                                }while (velocidad1 < 1 || velocidad1 > 200);
                                 do {
                                     System.out.println("ATAQUE");
                                     ataque1 = userprint.nextInt();
-                                    if (ataque2 < 1 || ataque2 > 200) {
+                                    if (ataque1 < 1 || ataque1 > 200) {
                                         System.out.println("VALOR INCORRECTO");
                                     }
-                                }while (ataque2 < 1 || ataque2 > 200);
+                                }while (ataque1 < 1 || ataque1 > 200);
                                 do {
                                     System.out.println("DEFENSA");
                                     defensa1 = userprint.nextInt();
-                                    if (defensa2 < 1 || defensa2 > 200) {
+                                    if (defensa1 < 1 || defensa1 > 200) {
                                         System.out.println("VALOR INCORRECTO");
                                     }
-                                }while (defensa2 < 1 || defensa2 > 200);
+                                }while (defensa1 < 1 || defensa1 > 200);
                                 do {
                                     System.out.println("VIDA:");
                                     vida1= userprint.nextInt();
-                                    if (vida2 < 1 || vida2 > 200) {
+                                    if (vida1 < 1 || vida1 > 200) {
                                         System.out.println("VALOR INCORRECTO");
                                     }
-                                }while (vida2 < 1 || vida2 > 200);
-                                total2 = velocidad2 + ataque2 + defensa2 + vida2;
+                                }while (vida1 < 1 || vida1 > 200);
+                                total1 = velocidad1 + ataque1 + defensa1 + vida1;
                                 if (total1 > 500) System.out.println("¡ERROR! los atributos no pueden pasar de 500, vuelve a comenzar");
                             } while (total1 > 500);
                         }
@@ -511,6 +511,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE " + totalataque + " DAÑO");
                                     vida2 = vida2 - totalataque;
                                     espacio = userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio = userprint.nextLine();
                                 }else {
@@ -524,6 +525,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
                                     vida2 = vida2 - totalataque;
                                     espacio= userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio= userprint.nextLine();
                                 }
@@ -556,6 +558,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE " + totalataque + " DAÑO");
                                     vida1 = vida1 - totalataque;
                                     espacio = userprint.nextLine();
+                                    if (vida1 < 0) vida1 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio = userprint.nextLine();
                                 }else if (total2 != 0){
@@ -567,7 +570,8 @@ public class juego {
                                         totalataque = 0;
                                     }
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
-                                    vida2 = vida2 - totalataque;
+                                    vida1 = vida1 - totalataque;
+                                    if (vida1 < 0) vida1 = 0;
                                     espacio= userprint.nextLine();
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio= userprint.nextLine();
@@ -579,8 +583,9 @@ public class juego {
                                         totalataque = 0;
                                     }
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
-                                    vida2 = vida2 - totalataque;
+                                    vida1 = vida1 - totalataque;
                                     espacio= userprint.nextLine();
+                                    if (vida1 < 0) vida1 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio= userprint.nextLine();
 
@@ -616,6 +621,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE " + totalataque + " DAÑO");
                                     vida1 = vida1 - totalataque;
                                     espacio = userprint.nextLine();
+                                    if (vida1 < 0) vida1 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio = userprint.nextLine();
                                 }else if (total2 != 0){
@@ -627,7 +633,8 @@ public class juego {
                                         totalataque = 0;
                                     }
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
-                                    vida2 = vida2 - totalataque;
+                                    vida1 = vida1 - totalataque;
+                                    if (vida1 < 0) vida1 = 0;
                                     espacio= userprint.nextLine();
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio= userprint.nextLine();
@@ -636,7 +643,8 @@ public class juego {
                                     totalata = random.nextInt(ataque2);
                                     totalataque = totalata - randomplus;
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
-                                    vida2 = vida2 - totalataque;
+                                    vida1 = vida1 - totalataque;
+                                    if (vida1 < 0) vida1 = 0;
                                     espacio= userprint.nextLine();
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio= userprint.nextLine();
@@ -668,8 +676,9 @@ public class juego {
                                     totalata = random.nextInt(ataque1);
                                     totalataque = totalata +  randomplus;
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE " + totalataque + " DAÑO");
-                                    vida1 = vida1 - totalataque;
+                                    vida2 = vida2 - totalataque;
                                     espacio = userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio = userprint.nextLine();
                                 }else if (total1 != 0){
@@ -681,6 +690,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
                                     vida2 = vida2 - totalataque;
                                     espacio= userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio= userprint.nextLine();
                                 } else {
@@ -690,6 +700,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
                                     vida2 = vida2 - totalataque;
                                     espacio= userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio= userprint.nextLine();
 
@@ -747,6 +758,8 @@ public class juego {
                         total1 = velocidad1 + ataque1 + defensa1 + vida1;
                         if (total1 > 500) System.out.println("¡ERROR! los atributos no pueden pasar de 500, vuelve a comenzar");
                     } while (total1 > 500);
+
+
 
                     System.out.println("TURNO DEL JUGADOR 2");
                     System.out.println("SI DESEAS ELEGIR UN POKEMON PULSA '1'\n" + "SI DESEAS PERSONALIZAR TU PROPIO POKEMON PULSA '2'");
@@ -929,8 +942,43 @@ public class juego {
                                 }
 
                             }while (elegirper == 0);
+                            break;
 
-
+                        }
+                        case 2 : {
+                            System.out.println("EXCELENTE  ELECCIÓN. ES HORA DE ELEGIR LA CANTIDAD DE CADA ATRIBUTO DE TU POKEMON");
+                            do {
+                                do {
+                                    System.out.println("VELOCIDAD");
+                                    velocidad1 = userprint.nextInt();
+                                    if (velocidad1 < 1 || velocidad1 > 200) {
+                                        System.out.println("VALOR INCORRECTO");
+                                    }
+                                }while (velocidad1 < 1 || velocidad1 > 200);
+                                do {
+                                    System.out.println("ATAQUE");
+                                    ataque1 = userprint.nextInt();
+                                    if (ataque1 < 1 || ataque1 > 200) {
+                                        System.out.println("VALOR INCORRECTO");
+                                    }
+                                }while (ataque1 < 1 || ataque1 > 200);
+                                do {
+                                    System.out.println("DEFENSA");
+                                    defensa1 = userprint.nextInt();
+                                    if (defensa1 < 1 || defensa1 > 200) {
+                                        System.out.println("VALOR INCORRECTO");
+                                    }
+                                }while (defensa1 < 1 || defensa1 > 200);
+                                do {
+                                    System.out.println("VIDA:");
+                                    vida1= userprint.nextInt();
+                                    if (vida1 < 1 || vida1 > 200) {
+                                        System.out.println("VALOR INCORRECTO");
+                                    }
+                                }while (vida1 < 1 || vida1 > 200);
+                                total1 = velocidad1 + ataque1 + defensa1 + vida1;
+                                if (total1 > 500) System.out.println("¡ERROR! los atributos no pueden pasar de 500, vuelve a comenzar");
+                            } while (total1 > 500);
                         }
                     }
                     System.out.println("▗▄▄▄▖ ▗▖ ▗▖▗▄▄▄▖     ▗▄▄▖ ▗▄▖ ▗▖  ▗▖▗▄▄▄▖▗▄▄▄▖▗▖  ▗▖ ▗▄▄▖▗▄▄▄▖    ▗▖    ▗▄▖     ▗▄▄▖  ▗▄▖▗▄▄▄▖▗▄▖ ▗▖   ▗▖    ▗▄▖ \n" +
@@ -956,6 +1004,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE " + totalataque + " DAÑO");
                                     vida2 = vida2 - totalataque;
                                     espacio = userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio = userprint.nextLine();
                                 }else {
@@ -969,6 +1018,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
                                     vida2 = vida2 - totalataque;
                                     espacio= userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio= userprint.nextLine();
                                 }
@@ -1001,6 +1051,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE " + totalataque + " DAÑO");
                                     vida1 = vida1 - totalataque;
                                     espacio = userprint.nextLine();
+                                    if (vida1 < 0) vida1 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio = userprint.nextLine();
                                 }else if (total2 != 0){
@@ -1012,7 +1063,8 @@ public class juego {
                                         totalataque = 0;
                                     }
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
-                                    vida2 = vida2 - totalataque;
+                                    vida1 = vida1 - totalataque;
+                                    if (vida1 < 0) vida1 = 0;
                                     espacio= userprint.nextLine();
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio= userprint.nextLine();
@@ -1024,7 +1076,8 @@ public class juego {
                                         totalataque = 0;
                                     }
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
-                                    vida2 = vida2 - totalataque;
+                                    vida1 = vida1 - totalataque;
+                                    if (vida1 < 0) vida1 = 0;
                                     espacio= userprint.nextLine();
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio= userprint.nextLine();
@@ -1072,8 +1125,9 @@ public class juego {
                                         totalataque = 0;
                                     }
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
-                                    vida2 = vida2 - totalataque;
+                                    vida1 = vida1 - totalataque;
                                     espacio= userprint.nextLine();
+                                    if (vida1 < 0) vida1 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio= userprint.nextLine();
                                 } else {
@@ -1081,7 +1135,7 @@ public class juego {
                                     totalata = random.nextInt(ataque2);
                                     totalataque = totalata - randomplus;
                                     System.out.println("EL JUGADOR 2 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
-                                    vida2 = vida2 - totalataque;
+                                    vida1 = vida1 - totalataque;
                                     espacio= userprint.nextLine();
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 1 : " + vida1);
                                     espacio= userprint.nextLine();
@@ -1113,8 +1167,9 @@ public class juego {
                                     totalata = random.nextInt(ataque1);
                                     totalataque = totalata +  randomplus;
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE " + totalataque + " DAÑO");
-                                    vida1 = vida1 - totalataque;
+                                    vida2 = vida2 - totalataque;
                                     espacio = userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio = userprint.nextLine();
                                 }else if (total1 != 0){
@@ -1126,6 +1181,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
                                     vida2 = vida2 - totalataque;
                                     espacio= userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio= userprint.nextLine();
                                 } else {
@@ -1135,6 +1191,7 @@ public class juego {
                                     System.out.println("EL JUGADOR 1 LANZA UN ATAQUE DE : " +totalataque + " DAÑO");
                                     vida2 = vida2 - totalataque;
                                     espacio= userprint.nextLine();
+                                    if (vida2 < 0) vida2 = 0;
                                     System.out.println("VIDA RESTANTE DEL JUGADOR 2 : " + vida2);
                                     espacio= userprint.nextLine();
 
