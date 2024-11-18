@@ -168,15 +168,15 @@ public class juego {
                         case 5 : {
                             System.out.println("HAS ELEGIDO A GYARADOS");
                             System.out.println("GYARADOS TIENE LAS SIGUIENTES CARACTERISTICAS");
-                            System.out.println("VELOCIDAD : 80\n" + "ATAQUE : 220\n" + "DEFENSA : 80\n" + "VIDA : 120");
+                            System.out.println("VELOCIDAD : 80\n" + "ATAQUE : 200\n" + "DEFENSA : 80\n" + "VIDA : 140");
                             System.out.println("PARA CONFIRMAR PULSA 1, O PULSA '2' PARA VOLVER A ELEGIR EL PERSONAJE");
                             elegirper = userprint.nextInt();
                             if (elegirper == 1){
                                 bucleout = 1;
                                 velocidad1 = 80;
-                                ataque1 = 220;
+                                ataque1 = 200;
                                 defensa1 = 80;
-                                vida1 = 120;
+                                vida1 = 140;
                             }
                             else bucleout = 0;
                             break;
@@ -351,15 +351,15 @@ public class juego {
                                     case 5 : {
                                         System.out.println("HAS ELEGIDO A GYARADOS");
                                         System.out.println("GYARADOS TIENE LAS SIGUIENTES CARACTERISTICAS");
-                                        System.out.println("VELOCIDAD : 80\n" + "ATAQUE : 220\n" + "DEFENSA : 80\n" + "VIDA : 120");
+                                        System.out.println("VELOCIDAD : 80\n" + "ATAQUE : 200\n" + "DEFENSA : 80\n" + "VIDA : 140");
                                         System.out.println("PARA CONFIRMAR PULSA 1, O PULSA '2' PARA VOLVER A ELEGIR EL PERSONAJE");
                                         elegirper = userprint.nextInt();
                                         if (elegirper == 1){
                                             bucleout = 1;
                                             velocidad2 = 80;
-                                            ataque2 = 220;
+                                            ataque2 = 200;
                                             defensa2 = 80;
-                                            vida2 = 120;
+                                            vida2 = 140;
                                         }
                                         else bucleout = 0;
                                         break;
@@ -492,7 +492,8 @@ public class juego {
                             "▐▌ ▐▌ ▐▌ ▐▌▐▛▀▀▘    ▐▌   ▐▌ ▐▌▐▌  ▐▌  █  ▐▛▀▀▘▐▌ ▝▜▌▐▌   ▐▛▀▀▘    ▐▌   ▐▛▀▜▌    ▐▛▀▚▖▐▛▀▜▌ █ ▐▛▀▜▌▐▌   ▐▌   ▐▛▀▜▌\n" +
                             "▐▙▄▟▙▖▝▚▄▞▘▐▙▄▄▖    ▝▚▄▄▖▝▚▄▞▘▐▌  ▐▌▗▄█▄▖▐▙▄▄▖▐▌  ▐▌▝▚▄▄▖▐▙▄▄▖    ▐▙▄▄▖▐▌ ▐▌    ▐▙▄▞▘▐▌ ▐▌ █ ▐▌ ▐▌▐▙▄▄▖▐▙▄▄▖▐▌ ▐▌\n");
 
-
+                    espacio = userprint.nextLine();
+                    espacio = userprint.nextLine();
                     do {
                         if (espacio.isEmpty()){
                             if (velocidad1 > velocidad2) {
@@ -845,15 +846,15 @@ public class juego {
                                     case 5 : {
                                         System.out.println("HAS ELEGIDO A GYARADOS");
                                         System.out.println("GYARADOS TIENE LAS SIGUIENTES CARACTERISTICAS");
-                                        System.out.println("VELOCIDAD : 80\n" + "ATAQUE : 220\n" + "DEFENSA : 80\n" + "VIDA : 120");
+                                        System.out.println("VELOCIDAD : 80\n" + "ATAQUE : 200\n" + "DEFENSA : 80\n" + "VIDA : 140");
                                         System.out.println("PARA CONFIRMAR PULSA 1, O PULSA '2' PARA VOLVER A ELEGIR EL PERSONAJE");
                                         elegirper = userprint.nextInt();
                                         if (elegirper == 1){
                                             bucleout = 1;
                                             velocidad1 = 80;
-                                            ataque1 = 220;
+                                            ataque1 = 200;
                                             defensa1 = 80;
-                                            vida1 = 120;
+                                            vida1 = 140;
                                         }
                                         else bucleout = 0;
                                         break;
