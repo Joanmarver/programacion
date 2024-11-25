@@ -14,6 +14,7 @@ public class ejer2 {
         if (func == false)System.out.println("es menor de edad");
 
     }
+
     public static boolean isAdult(int age){
       boolean result;
       result = false;
