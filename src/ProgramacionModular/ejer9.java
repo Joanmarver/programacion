@@ -12,10 +12,19 @@ public class ejer9 {
         Triangulo(caracter,lineas);
 
     }
-    public static void Triangulo(String A, int B){
-        String linea = A;
-        for (int i = 0; i<=B; i++){
-            System.out.println(" ");
+    public static void Triangulo(String caracter, int numLineas){
+        for (int i = 0; i < numLineas; i++) {
+            int espaciosIzquierda = numLineas - i - 1;
+            int numCaracteres = 2 * i + 1;
+            for (int j = 0; j < espaciosIzquierda; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < numCaracteres; j++) {
+                System.out.print(caracter);
+            }
+
+            System.out.println();
+        }
         }
     }
-}
+
