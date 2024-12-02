@@ -10,8 +10,8 @@ public class ejer2 {
         System.out.println("dime tu edad");
         int edad= userprint.nextInt();
         func=isAdult(edad);
-        if (func == true) System.out.println("es mayor de edad");
-        if (func == false)System.out.println("es menor de edad");
+        if (func) System.out.println("es mayor de edad");
+        if (!func)System.out.println("es menor de edad");
 
     }
 

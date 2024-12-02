@@ -7,8 +7,10 @@ public class ejer1 {
         double area,perimetro;
         boolean numpri, numpri2;
         long digitos;
+        int factorial;
+        int respuesta1,respuesta2;
         Scanner userprint = new Scanner(System.in);
-        System.out.println("1.calcular perimetro y area\n" + "2.Numero primo o no\n" + "3.Numero de digitos de un numero\n");
+        System.out.println("1.calcular perimetro y area\n" + "2.Numero primo o no\n" + "3.Numero de digitos de un numero\n" + "4.Factorial\n" + "5.Soluciones\n" + "6. Sumar digitos");
         int respuesta = userprint.nextInt();
         switch (respuesta){
             case 1:{
@@ -89,9 +91,51 @@ public class ejer1 {
                     default:
                         System.out.println("numero invalido");
                 }
+                break;
 
 
-            } case 4 :
+            } case 4 : {
+                System.out.println("1.factorial\n"+ "2.factorial recursiva");
+                respuesta = userprint.nextInt();
+                switch (respuesta){
+                    case 1:{
+                        System.out.println("dime un numero");
+                        respuesta = userprint.nextInt();
+                        factorial = FuncFactorial(respuesta);
+                        System.out.println("factorial : " + factorial);
+                        break;
+                    }
+                    case 2:{
+                        System.out.println("dime un numero");
+                        respuesta = userprint.nextInt();
+                        factorial = FncFactorialRecursiva(respuesta);
+                        System.out.println("factorial : " + factorial);
+                        break;
+                    }
+                    default:
+                        System.out.println("opción invalido");
+
+                }
+                break;
+
+            } case 5 : {
+                System.out.println("dime 3 numeros enteros");
+                respuesta = userprint.nextInt();
+                respuesta2= userprint.nextInt();
+                respuesta1= userprint.nextInt();
+                int solucion = FuncSoluciones(respuesta,respuesta2,respuesta1);
+                System.out.println("soluciones : " + solucion);
+                break;
+
+            } case 6 : {
+                System.out.println("dime un numero");
+                respuesta = userprint.nextInt();
+                int total = FuncSumarDigitos(respuesta);
+                System.out.println("total : " + total);
+                break;
+            }
+            default:
+                System.out.println("opcion invalida");
         }
     }
     public static double circlePerimetre(double radio){
@@ -181,11 +225,14 @@ public class ejer1 {
         return noprimo;
     }
     public static int DigitosNumero(int number){
+        //revisa
         int result;
         result= 0;
-        while (number<1);{
-            number = number/10;
+        while (number>=1){
+            int digitos = number % 10;
             result++;
+            number  /= 10;
+
         }
         return result;
     }
@@ -225,10 +272,30 @@ public class ejer1 {
         return result;
     }
     public static int FncFactorialRecursiva(int numero){
-        int result = 0;
-        for (int i = numero; i >= 1 ; i--) {
-            result *= i;
+        if (numero <= 1) return numero;
+        return numero * FncFactorialRecursiva(numero-1);
+    }
+    public static int FuncSoluciones(int a, int b, int c){
+        int result;
+        if (b*2 - 4*a*c <0){
+            result = 0;
+        }else if (b*2 - 4*a*c >0){
+            result = 2;
+        }else result = 1;
+        return result;
+    }
+    public static int FuncSumarDigitos(int numero){
+        //revisar
+        int result;
+        result= 0;
+
+        while (numero>=1){
+
+            int digitos = numero % 10;
+            result = digitos + result;
+            numero = numero/10;
         }
         return result;
     }
+
 }
