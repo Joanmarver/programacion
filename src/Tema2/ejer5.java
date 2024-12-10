@@ -16,7 +16,7 @@ public class ejer5 {
         double media;
         media = (num1 + num2 + num3) / 3;
         DecimalFormat truncado = new DecimalFormat("#");
-        System.out.println(String.format(String.format("la media sin decimales es " + truncado.format(media))));
+        System.out.println(truncado.format(media));
         System.out.println("la media con decimales es "+ ((num1 + num2 + num3) / 3));
 
         user.close();

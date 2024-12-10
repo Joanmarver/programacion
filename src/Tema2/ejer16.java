@@ -9,7 +9,7 @@ public class ejer16 {
         double euro = 0.92;
         char letra;
         Scanner usernum = new Scanner(System.in);
-        System.out.println("dime la cantidad de euros");
+        System.out.println("dime la cantidad");
         dinero = usernum.nextDouble();
         System.out.println(" ahora pulsa la letra 'D' si quieres cambiar a dolares o 'E' si quiero convertir a euros");
         letra = usernum.next().charAt(0);
