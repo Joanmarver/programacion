@@ -89,31 +89,33 @@ public class Utils {
     public static String Monedas(double a) {
         // pasar a centimos;
 
-        int centimos = (int) a * 100 ;
+        double centimos =  a * 100 ;
+        int Cent = (int) centimos;
+
         int monedados, monedaUno, MonedaCincuenta,MonedaVeinte,MonedaDiez,MonedaCinco,MonedaDos,MonedaUno;
-        monedados = centimos / 200;
-        centimos = centimos % 200;
+        monedados = Cent / 200;
+        Cent = Cent % 200;
 
-        monedaUno = centimos / 100;
-        centimos = centimos % 100;
+        monedaUno = Cent / 100;
+        Cent = Cent % 100;
 
-        MonedaCincuenta = centimos / 50;
-        centimos = centimos % 50;
+        MonedaCincuenta = Cent / 50;
+        Cent = Cent % 50;
 
-        MonedaVeinte = centimos / 20;
-        centimos = centimos % 20;
+        MonedaVeinte = Cent / 20;
+        Cent = Cent % 20;
 
-        MonedaDiez = centimos / 10;
-        centimos = centimos%10;
+        MonedaDiez = Cent / 10;
+        Cent = Cent %10;
 
-        MonedaCinco = centimos / 5;
-        centimos = centimos%10;
+        MonedaCinco = Cent / 5;
+        Cent = Cent % 10;
 
-        MonedaDos = centimos / 2;
-        centimos = centimos%2;
+        MonedaDos = Cent / 2;
+        Cent = Cent %2;
 
-        MonedaUno = centimos / 1;
-        centimos = centimos % 1;
+        MonedaUno = Cent / 1;
+        Cent = Cent % 1;
 
         String result= "" + monedados + monedaUno+ MonedaCincuenta + MonedaVeinte + MonedaDiez + MonedaCinco + MonedaDos + MonedaUno;
         return result;
