@@ -19,7 +19,6 @@ public class hoteles {
         int asce = 1;
         for (int i = 0; i < respuestados; i++){
 
-            if ( habitaciones[respuesta + asce] < 0 )
             habitaciones[respuesta + asce]= respuestados - asce;
             habitaciones[respuesta - asce]= respuestados - asce;
 
