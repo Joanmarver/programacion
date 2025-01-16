@@ -47,7 +47,7 @@ public class JuegoMosca {
                 System.out.println("HAS FALLADO");
                 if ((respuesta < 14 && array[respuesta + 1] == 1) || (respuesta > 0 && array[respuesta - 1] == 1)) {
                     System.out.println("la mosca ha cambiado de posición");
-                    array[respuesta + 1] = 0;
+
                     if (respuesta <= 14 && array[respuesta + 1]==1){
                         array[respuesta + 1]= 0;
                     }

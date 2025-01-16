@@ -22,10 +22,10 @@ public class Buscarpareja {
         parejas(parejas);
         Random random = new Random();
         for (int i=0;i< parejas.length;i++){
-        int numale= random.nextInt(20);
-        int extra= parejas[i];
-        parejas[i]= parejas[numale];
-        parejas[numale]= extra;
+            int numale= random.nextInt(20);
+            int extra= parejas[i];
+            parejas[i]= parejas[numale];
+            parejas[numale]= extra;
         }
     }
     public static void juego(int [] parejas , boolean[] visibles){
