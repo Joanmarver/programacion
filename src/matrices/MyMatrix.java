@@ -72,8 +72,8 @@ public class MyMatrix {
         int respuesta2= userprint.nextInt();
         System.out.println();
         int[][] matriz = new int [respuesta][respuesta2];
-        for (int i = 0; i < respuesta; i++) {
-            for (int j = 0 ; j < respuesta2;j++){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0 ; j < matriz[i].length;j++){
                 System.out.println("ingrese el valor para cada celda");
                 matriz[i][j]= userprint.nextInt();
             }
@@ -84,15 +84,16 @@ public class MyMatrix {
     // Método para imprimir los elementos de un array
     public static void ImprimirMatriz(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0;j< matriz[i].length;i++){
-                System.out.print(matriz[i][j]);
+            for (int j = 0;j< matriz[i].length;j++){
+                System.out.print(matriz[i][j] + " ");
             }
+            System.out.println();
         }
     }
     public static int maxmatriz(int[][] matriz){
         int maximo = 0;
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0;i<matriz[i].length;j++)
+            for (int j = 0;j<matriz[i].length;j++)
             if (matriz[i][j] > maximo){
                 maximo = matriz[i][j];
             }
@@ -102,7 +103,7 @@ public class MyMatrix {
     public static int minmatriz(int[][]matriz){
         int minimo = maxmatriz(matriz);
         for (int i = 0; i < matriz.length; i++) {
-            for (int j =0; i<matriz[i].length;i++){
+            for (int j =0; j<matriz[i].length;i++){
                 if (matriz[i][j] < minimo){
                     minimo = matriz[i][j];
                 }
@@ -143,13 +144,13 @@ public class MyMatrix {
         int totalA1 = 0;
         int totalA2 = 0;
         for (int i = 0; i < matriz.length; i++){
-            for (int j = 0 ; i<matriz[i].length; i++){
+            for (int j = 0 ; j<matriz[i].length; i++){
                 totalA1 = totalA1 + matriz[i][j];
             }
 
         }
         for (int i = 0; i < matriz2.length; i++){
-            for(int j = 0 ; i<matriz2[i].length;j++)
+            for(int j = 0 ; j<matriz2[i].length;j++)
             totalA2= totalA2 + matriz2[i][j];
         }
         totalA1 = totalA2 + totalA1;
@@ -159,13 +160,13 @@ public class MyMatrix {
         int totalA1 = 0;
         int totalA2 = 0;
         for (int i = 0; i < matriz.length; i++){
-            for (int j = 0 ; i<matriz[i].length; i++){
+            for (int j = 0 ; j<matriz[i].length; i++){
                 totalA1 = totalA1 + matriz[i][j];
             }
 
         }
         for (int i = 0; i < matriz2.length; i++){
-            for(int j = 0 ; i<matriz2[i].length;j++)
+            for(int j = 0 ; j<matriz2[i].length;j++)
                 totalA2= totalA2 + matriz2[i][j];
         }
         totalA1 = totalA1-totalA2;
