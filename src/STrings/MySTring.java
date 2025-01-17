@@ -1,5 +1,6 @@
 package STrings;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MySTring {
@@ -11,6 +12,13 @@ public class MySTring {
             case 1: {
                 String palabrafinal=mayus();
                 System.out.println(palabrafinal);
+            }
+            case 2: {
+                System.out.println("dime una palabra");
+                userprint.nextLine();
+                String palabra= userprint.nextLine();
+                int numvocales=numvocales(palabra);
+                System.out.println(numvocales);
             }
         }
     }
@@ -37,4 +45,17 @@ public class MySTring {
         palabra=palabra.toUpperCase();
     return palabra;
     }
+    public static int numvocales(String palabra){
+        palabra = palabra.toLowerCase();
+        int contvocales=0;
+
+        for (int i =0; i< palabra.length();i++){
+
+            if (palabra.charAt(i)=='a' || palabra.charAt(i)=='e' || palabra.charAt(i)=='o' || palabra.charAt(i)=='u'){
+                contvocales++;
+            }
+        }
+        return contvocales;
+    }
 }
+
