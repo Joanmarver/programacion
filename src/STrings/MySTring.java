@@ -20,6 +20,37 @@ public class MySTring {
                 int numvocales=numvocales(palabra);
                 System.out.println(numvocales);
             }
+            case 3: {
+                System.out.println("dime una frase y te diré la palabra mas alta");
+                userprint.nextLine();
+                String frase = userprint.nextLine();
+                String palabramasgrande= mayorlong(frase);
+                System.out.println(palabramasgrande);
+            }
+            case 4:{
+                System.out.println("dime una cadena");
+                userprint.nextLine();
+                String cadenauno = userprint.nextLine();
+                System.out.println("dime la cadena que quieres buscar dentro de la primera");
+                String cadenados = userprint.nextLine();
+                int result = Cadenaincluida(cadenauno,cadenados);
+                System.out.println("numero de veces que se repite la cadena: " + result);
+            }
+            case 5:{
+                System.out.println("dime un cadena");
+                userprint.nextLine();
+                String cadena=userprint.nextLine();
+                int result= numerodepalabra(cadena);
+                System.out.println("numero de palabras: "+ result);
+
+            }
+            case 6:{
+                System.out.println("dime tu numero de telefono");
+                userprint.nextLine();
+                String tel= userprint.nextLine();
+                String result = numerotel(tel);
+                System.out.println(result);
+            }
         }
     }
     public static String invertir(String palabra) {
@@ -56,6 +87,39 @@ public class MySTring {
             }
         }
         return contvocales;
+    }
+    public static String mayorlong(String palabra){
+        String palabramayor;
+        palabramayor=" ";
+        String[] array=palabra.split(" ");
+        for (int i = 0 ; i< array.length;i++){
+            if (palabramayor.length() < array[i].length()){
+                palabramayor=array[i];
+            }
+        }
+        return palabramayor;
+    }
+    public static int Cadenaincluida(String fraseuno, String frasedos){
+        int posicion = 0;
+        int cont = 0;
+        while ( (posicion= fraseuno.indexOf(frasedos, posicion)) != -1){
+            cont++;
+            posicion= posicion+frasedos.length();
+        }
+        return cont;
+    }
+    public static int numerodepalabra(String cadena){
+        String[] array= cadena.split(" ");
+        return array.length;
+    }
+    public static String numerotel(String numero){
+        String codigopais,prefijo,restonumero;
+        String num = String.valueOf(numero);
+        codigopais ="(+" + num.substring(0,2) + ")";
+        prefijo = "-" + num.substring(2,4)+ "-";
+        restonumero = num.substring(5,10);
+        String numerototal = codigopais + prefijo + restonumero;
+        return numerototal;
     }
 }
 
