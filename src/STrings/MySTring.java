@@ -51,6 +51,12 @@ public class MySTring {
                 String result = numerotel(tel);
                 System.out.println(result);
             }
+            case 7: {
+                System.out.println("dime una frase y te dire cuantas vocales tiene");
+                userprint.nextLine();
+                String cadena= userprint.nextLine();
+                histograma(cadena);
+            }
         }
     }
     public static String invertir(String palabra) {
@@ -120,6 +126,55 @@ public class MySTring {
         restonumero = num.substring(5,10);
         String numerototal = codigopais + prefijo + restonumero;
         return numerototal;
+    }
+    public static void histograma(String cadena){
+        int contvoca=0;
+        int contvocale=0;
+        int contvocali=0;
+        int contvocalo=0;
+        int vocalvocalu=0;
+        int cont=0;
+        cadena = cadena.toLowerCase();
+        for (int i = 0 ; i<cadena.length();i++){
+            if (cadena.charAt(i) == 'a') contvoca++;
+            if (cadena.charAt(i)== 'e') contvocale++;
+            if (cadena.charAt(i)=='i') contvocali++;
+            if (cadena.charAt(i)=='u') vocalvocalu++;
+            if (cadena.charAt(i)== 'o') contvocalo++;
+        }
+        System.out.print("a " + contvoca +" ");
+        while (cont < contvoca){
+            System.out.print("*");
+            cont++;
+        }
+        System.out.println();
+        cont=0;
+        System.out.print("e " + contvocale + " ");
+        while (cont < contvocale){
+            System.out.print("*");
+            cont++;
+        }
+        System.out.println();
+        cont=0;
+        System.out.print("i " + contvocali+ " ");
+        while (cont < contvocali){
+            System.out.print("*");
+            cont++;
+        }
+        System.out.println();
+        cont=0;
+        System.out.print("o " + contvocalo + " ");
+        while (cont < contvocalo){
+            System.out.print("*");
+            cont++;
+        }
+        System.out.println();
+        cont=0;
+        System.out.print("u " + vocalvocalu +" ");
+        while (cont < vocalvocalu){
+            System.out.print("*");
+            cont++;
+        }
     }
 }
 
