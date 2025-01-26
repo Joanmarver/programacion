@@ -25,7 +25,7 @@ public class claseejer1 {
 
             // Mostrar la representación de los relojes con toString()
             System.out.println(reloj1); // Imprime la hora con formato 12 horas
-            System.out.println(reloj2); // Imprime la hora con formato 24 horas
+            System.out.println(reloj2); // mprime la hora con formato 24 horas
         }
     }
 }
