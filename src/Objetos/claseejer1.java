@@ -1,7 +1,7 @@
 package Objetos;
 
-public class claseejer1 {
-    public class Main {
+
+    public class claseejer1 {
         public static void main(String[] args) {
 
             // Crear un reloj usando el constructor vacío
@@ -29,4 +29,4 @@ public class claseejer1 {
             System.out.println(reloj2);
         }
     }
-}
+
