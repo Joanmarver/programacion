@@ -97,14 +97,14 @@ public class Hero {
                 ", defense=" + defense +
                 '}';
     }
-    public int attack(Hero enemigo){
+    public void attack(Hero enemigo){
 
-       int ataque = Math.max(attack - enemigo.defense,10);
+       int ataque = Math.max(1,enemigo.attack-defense);
+        System.out.println("ATAQUE DE "+ ataque + " DAÑO");
        health = health-ataque;
        int xpattack= 10;
        experience = experience+xpattack;
        levelUP();
-       return experience;
 
     }
     public int levelUP(){
