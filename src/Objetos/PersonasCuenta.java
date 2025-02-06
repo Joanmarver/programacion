@@ -1,9 +1,14 @@
 package Objetos;
 
-public class Personas {
+public class PersonasCuenta {
     private  String  letraDNI;
     private int numDNI;
     Cuenta[] cuentascorrientes = new Cuenta[2];
+
+    public PersonasCuenta(int numDNI, String letraDNI) {
+        this.numDNI = numDNI;
+        this.letraDNI = letraDNI;
+    }
 
     public int getNumDNI() {
         return numDNI;
@@ -41,7 +46,7 @@ public class Personas {
         return cambiocuenta;
 
     }
-    public void añadircuenta(Cuenta[] cuentascorrientes, Personas persona){
+    public void añadircuenta(Cuenta[] cuentascorrientes, PersonasCuenta persona){
         boolean cambiocuenta = limitecuentas(cuentascorrientes);
         if (cambiocuenta){
             Cuenta cuenta = new Cuenta(persona);
@@ -53,7 +58,7 @@ public class Personas {
             }
         }
     }
-    public boolean moroso(Cuenta[] cuentascorrientes , Personas persona){
+    public boolean moroso(Cuenta[] cuentascorrientes , PersonasCuenta persona){
         boolean moroso= false;
         for (Cuenta cuenta: cuentascorrientes){
             if(cuenta.getSaldodisponible()<0){

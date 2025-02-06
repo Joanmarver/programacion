@@ -2,15 +2,19 @@ package Objetos;
 
 import java.util.Random;
 
-import static java.lang.Math.random;
-
 public class Cuenta {
 private int numerocuenta;
 private int saldodisponible;
 
-    public Cuenta(Personas persona) {
+    public Cuenta(PersonasCuenta persona) {
         Random random= new Random(20);
         this.numerocuenta = persona.getNumDNI() + random.nextInt();
+        this.saldodisponible=0;
+    }
+
+
+    public Cuenta(PersonasCuenta persona, int saldo) {
+        this.saldodisponible = saldo;
 
     }
 
