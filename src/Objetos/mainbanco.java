@@ -59,6 +59,7 @@ public class mainbanco {
                 i+= arrayclientes.length+1;
             }
         }
+
         System.out.println("has quedado registrado");
 
     }
