@@ -69,7 +69,7 @@ public class Reloj {
         this.formato24Horas = formato24Horas;
     }
 
-    // Método para mostrar la hora por pantalla
+
     public void mostrarHora() {
         String horaFormateada;
         if (formato24Horas) {
@@ -82,7 +82,7 @@ public class Reloj {
         System.out.println("Hora actual: " + horaFormateada);
     }
 
-    // Método toString() para representar el reloj como una cadena
+   
     @Override
     public String toString() {
         String formato = formato24Horas ? "24 horas" : "12 horas";
