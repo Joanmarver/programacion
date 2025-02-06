@@ -18,7 +18,7 @@ public class mainbanco {
                     break;
                 }
                 case 2: {
-                    registrarcuenta();
+                    registrarcuenta(arrayclientes);
                     break;
                 }
                 case 3: {
