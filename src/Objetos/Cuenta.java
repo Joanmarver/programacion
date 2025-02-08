@@ -8,7 +8,7 @@ private int saldodisponible;
 
     public Cuenta(PersonasCuenta persona) {
         Random random= new Random();
-        this.numerocuenta = persona.getNumDNI() + random.nextInt();
+        this.numerocuenta = persona.getNumDNI() + random.nextInt(0,1000);
         this.saldodisponible=0;
     }
 
@@ -34,6 +34,11 @@ private int saldodisponible;
     public int recibos(int pago){
         saldodisponible-=pago;
         return saldodisponible;
+
+    }
+    public void nomina(PersonasCuenta persona){
+        saldodisponible+=1000;
+        System.out.println("saldo disponible actual: " + saldodisponible);
 
     }
 }

@@ -1,5 +1,6 @@
 package Objetos;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class mainbanco {
@@ -23,9 +24,11 @@ public class mainbanco {
                     break;
                 }
                 case 3: {
+                    mostrardatos(arrayclientes);
                     break;
                 }
                 case 4: {
+                    nomina(arrayclientes);
                     break;
                 }
                 case 5: {
@@ -53,6 +56,7 @@ public class mainbanco {
         System.out.println("dime tu Letra de DNI");
         scaner.nextLine();
         String letraDNI = scaner.nextLine();
+        letraDNI=letraDNI.toUpperCase();
         PersonasCuenta personauno= new PersonasCuenta(DNI,letraDNI);
         boolean userduplicado=false;
 
@@ -67,25 +71,29 @@ public class mainbanco {
             if (arrayclientes[i] == null) {
                 arrayclientes[i] = personauno;
                 System.out.println("Usuario registrado con éxito.");
+                userregistrado=true;
 
             }
         }
 
 
-        System.out.println("has quedado registrado");
 
     }
     public static void registrarcuenta (PersonasCuenta[] arrayclientes){
         Scanner scanner= new Scanner(System.in);
         System.out.println("dime tu letra de DNI");
         String letraDNI= scanner.nextLine();
+        letraDNI=letraDNI.toUpperCase();
         System.out.println("dime tu numero de DNI");
         int numDNI= scanner.nextInt();
         boolean usercreado=false;
         for (int i =0; i< arrayclientes.length && !usercreado;i++){
-            if (arrayclientes[i]!=null&& arrayclientes[i].getNumDNI()== numDNI && arrayclientes[i].getletraDNI()==letraDNI){
+            if (arrayclientes[i]!=null&& arrayclientes[i].getNumDNI()== numDNI && arrayclientes[i].getletraDNI().equals(letraDNI)){
                 System.out.println("vamos a añadir una cuenta asociada a tu cartera");
+                System.out.println();
+                System.out.println();
                arrayclientes[i].añadircuenta(arrayclientes[i].getCuentascorrientes(),arrayclientes[i]);
+                System.out.println("para mostrar el numero de cuenta y sus datos pulse la opión numero 3");
                 System.out.println("cuenta agregada a tu cartera");
                 usercreado=true;
 
@@ -98,7 +106,38 @@ public class mainbanco {
 
 
     }
-    public static void mostrardatos(){
+    public static void mostrardatos(PersonasCuenta[] arrayclientes){
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("dime tu letra de DNI");
+        String letraDNI= scanner.nextLine();
+        letraDNI=letraDNI.toUpperCase();
+        System.out.println("dime tu numero de DNI");
+        int numDNI= scanner.nextInt();
+        for (PersonasCuenta persona:arrayclientes){
+            if ( persona!=null&& persona.getNumDNI()== numDNI&& persona.getletraDNI().equals(letraDNI)){
+                persona.Mostrardatos(persona);
+            }
+        }
+
+    }
+    public static void nomina(PersonasCuenta[] arrayclientes){
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("dime tu letra de DNI");
+        String letraDNI= scanner.nextLine();
+        letraDNI=letraDNI.toUpperCase();
+        System.out.println("dime tu numero de DNI");
+        int numDNI= scanner.nextInt();
+        System.out.println("numero de cuenta:");
+        int numcuenta= scanner.nextInt();
+        for (PersonasCuenta persona: arrayclientes){
+            if ( persona!=null&& persona.getNumDNI()== numDNI&& persona.getletraDNI().equals(letraDNI)){
+                for (Cuenta cuenta: persona.cuentascorrientes){
+                    if ( cuenta!=null&&cuenta.getNumerocuenta()==numcuenta ){
+                        cuenta.nomina(persona);
+                    }
+                }
+            }
+        }
 
     }
 }

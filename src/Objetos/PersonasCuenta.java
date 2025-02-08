@@ -1,5 +1,6 @@
 package Objetos;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 public class PersonasCuenta {
@@ -9,7 +10,7 @@ public class PersonasCuenta {
 
     public PersonasCuenta(int numDNI, String letraDNI) {
         this.numDNI = numDNI;
-        this.letraDNI = letraDNI.toUpperCase(Locale.ROOT);
+        this.letraDNI = letraDNI.toUpperCase();
     }
 
     public int getNumDNI() {
@@ -38,18 +39,29 @@ public class PersonasCuenta {
         this.cuentascorrientes = cuentascorrientes;
 
     }
-    public boolean limitecuentas(Cuenta[] cuentascorrientes){
-        boolean cambiocuenta=false;
-        if (cuentascorrientes.length>=3){
-            System.out.println("error , limite de cuentas alcanzado");
-        }else {
-            cambiocuenta=true;
-        }
-        return cambiocuenta;
 
+    public boolean limiteCuentas() {
+        int cuentasOcupadas = 0;
+        boolean cuentaalcanzada;
+
+        // Contar cuántas cuentas están ocupadas (no son null)
+        for (Cuenta cuenta : cuentascorrientes) {
+            if (cuenta != null) {
+                cuentasOcupadas++;
+            }
+        }
+
+        if (cuentasOcupadas >= cuentascorrientes.length) {
+            System.out.println(" Error: Límite de cuentas alcanzado.");
+            cuentaalcanzada=false;
+        }
+        System.out.println("numero de cuentas: "+cuentasOcupadas);
+        cuentaalcanzada =true;
+        return cuentaalcanzada;
     }
+
     public void añadircuenta(Cuenta[] cuentascorrientes, PersonasCuenta persona){
-        boolean cambiocuenta = limitecuentas(cuentascorrientes);
+        boolean cambiocuenta = limiteCuentas();
         boolean cuentaagregada= false;
         if (cambiocuenta){
             Cuenta cuenta = new Cuenta(persona);
@@ -72,5 +84,17 @@ public class PersonasCuenta {
         }
         return moroso;
     }
+    public void Mostrardatos (PersonasCuenta persona){
+        System.out.println("datos de la persona:");
+        System.out.println("DNI : "+ numDNI+letraDNI);
+
+        for (Cuenta cuenta: cuentascorrientes){
+            if (cuenta!=null){
+                System.out.println("numero de cuenta: " + cuenta.getNumerocuenta());
+                System.out.println("saldo disponible: " + cuenta.getSaldodisponible());
+            }
+        }
+    }
+
 
 }
