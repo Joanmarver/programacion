@@ -7,7 +7,7 @@ private int numerocuenta;
 private int saldodisponible;
 
     public Cuenta(PersonasCuenta persona) {
-        Random random= new Random(20);
+        Random random= new Random();
         this.numerocuenta = persona.getNumDNI() + random.nextInt();
         this.saldodisponible=0;
     }
@@ -15,7 +15,13 @@ private int saldodisponible;
 
     public Cuenta(PersonasCuenta persona, int saldo) {
         this.saldodisponible = saldo;
+        Random random= new Random();
+        this.numerocuenta = persona.getNumDNI() + random.nextInt();
 
+    }
+
+    public int getNumerocuenta() {
+        return numerocuenta;
     }
 
     public int getSaldodisponible() {
