@@ -1,6 +1,6 @@
 package Objetos;
 
-import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class mainbanco {
@@ -32,6 +32,7 @@ public class mainbanco {
                     break;
                 }
                 case 5: {
+                    pago(arrayclientes);
                     break;
                 }
                 case 6: {
@@ -140,5 +141,117 @@ public class mainbanco {
         }
 
     }
-}
+    public static void pago(PersonasCuenta[] arrayclientes){
+        Random random =new Random();
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("dime tu letra de DNI");
+        String letraDNI= scanner.nextLine();
+        letraDNI=letraDNI.toUpperCase();
+        System.out.println("dime tu numero de DNI");
+        int numDNI= scanner.nextInt();
+        System.out.println("numero de cuenta:");
+        int numcuenta= scanner.nextInt();
+        for (PersonasCuenta persona: arrayclientes){
+            if ( persona!=null&& persona.getNumDNI()== numDNI&& persona.getletraDNI().equals(letraDNI)){
+                for (Cuenta cuenta: persona.cuentascorrientes){
+                    if ( cuenta!=null&&cuenta.getNumerocuenta()==numcuenta ){
+                        int paguita= random.nextInt(1000);
+                        System.out.println("has recibido el siguiente pago : "+ paguita );
+                        cuenta.abonos(paguita);
+                    } else {
+                        System.out.println("cuenta no encontrada");
+                    }
+                }
+            } else {
+                System.out.println("dni no encontrado");
+            }
+        }
+    }
+    public static void transferencia(PersonasCuenta[] arrayclientes){
+
+
+
+            Scanner scanner = new Scanner(System.in);
+
+            // Pedir datos de la cuenta de origen
+            System.out.println("🔹 Introduce los datos de la cuenta que debe transferire");
+            System.out.print("numero DNI : ");
+            int DNInum = scanner.nextInt();
+            scanner.nextLine();  // Limpiar buffer
+
+            System.out.print("Letra del DNI : ");
+            String letraDNI = scanner.nextLine().toUpperCase();
+
+            System.out.print("Número de cuenta : ");
+            int cuentaabono = scanner.nextInt();
+            scanner.nextLine(); // Limpiar buffer
+
+            // Pedir datos de la cuenta de destino
+            System.out.println("\n🔹 Introduce los datos de la cuenta que debe recibir");
+            System.out.print("numero DNI : ");
+            int dniNUMdestino = scanner.nextInt();
+            scanner.nextLine(); // Limpiar buffer
+
+            System.out.print("Letra del DNI : ");
+            String letraDNIDestino = scanner.nextLine().toUpperCase();
+
+            System.out.print("Número de cuenta del destinatario: ");
+            int cuentaDestino = scanner.nextInt();
+            scanner.nextLine(); // Limpiar buffer
+
+            // Pedir monto a transferir
+            System.out.print("\n💰 cantidad a transferir : ");
+            int monto = scanner.nextInt();
+
+            Cuenta cuentaSalida = null;
+            Cuenta cuentaEntrada = null;
+
+            // Buscar las cuentas en el array de clientes
+            for (PersonasCuenta persona : arrayclientes) {
+                if (persona != null) {
+                    // Buscar cuenta de origen
+                    if (persona.getNumDNI() == DNInum && persona.getletraDNI().equalsIgnoreCase(letraDNI)) {
+                        for (Cuenta cuenta : persona.getCuentascorrientes()) {
+                            if (cuenta != null && cuenta.getNumerocuenta() == cuentaabono) {
+                                cuentaSalida = cuenta;
+                            }
+                        }
+                    }
+
+                    // Buscar cuenta de destino
+                    if (persona.getNumDNI() == dniNUMdestino && persona.getletraDNI().equalsIgnoreCase(letraDNIDestino)) {
+                        for (Cuenta cuenta : persona.getCuentascorrientes()) {
+                            if (cuenta != null && cuenta.getNumerocuenta() == cuentaDestino) {
+                                cuentaEntrada = cuenta;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Validaciones
+            if (cuentaSalida == null) {
+                System.out.println(" La cuenta de origen no existe.");
+                return;
+            }
+            if (cuentaEntrada == null) {
+                System.out.println(" La cuenta de destino no existe.");
+                return;
+            }
+            if (cuentaSalida.getSaldodisponible() < monto) {
+                System.out.println(" Saldo insuficiente en la cuenta de origen.");
+                return;
+            }
+
+            // Realizar la transferencia
+            cuentaSalida.recibos(monto);  // Restar dinero de la cuenta de origen
+            cuentaEntrada.abonos(monto);  // Sumar dinero a la cuenta de destino
+
+            System.out.println("Transferencia de " + monto + " realizada con éxito.");
+            System.out.println("Nuevo saldo en cuenta origen (" + cuentaabono + "): " + cuentaSalida.getSaldodisponible());
+            System.out.println("Nuevo saldo en cuenta destino (" + cuentaDestino + "): " + cuentaEntrada.getSaldodisponible());
+        }
+
+    }
+
 
