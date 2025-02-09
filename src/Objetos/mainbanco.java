@@ -36,9 +36,11 @@ public class mainbanco {
                     break;
                 }
                 case 6: {
+                    transferencia(arrayclientes);
                     break;
                 }
                 case 7: {
+                    imprimirMorosos(arrayclientes);
                     break;
                 }
                 case 8:{
@@ -167,91 +169,97 @@ public class mainbanco {
             }
         }
     }
-    public static void transferencia(PersonasCuenta[] arrayclientes){
+    public static void transferencia(PersonasCuenta[] arrayClientes) {
+        Scanner scanner = new Scanner(System.in);
 
+        // Datos del remitente
+        System.out.println("🔹 Introduce los datos de la cuenta que enviará el dinero:");
+        System.out.print("DNI (sin letra): ");
+        int dniOrigen = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
+        System.out.print("Letra del DNI: ");
+        String letraOrigen = scanner.nextLine().toUpperCase();
+        System.out.print("Número de cuenta origen: ");
+        int cuentaOrigenNum = scanner.nextInt();
 
+        // Datos del destinatario
+        System.out.println("\n🔹 Introduce los datos de la cuenta que recibirá el dinero:");
+        System.out.print("DNI (sin letra): ");
+        int dniDestino = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
+        System.out.print("Letra del DNI: ");
+        String letraDestino = scanner.nextLine().toUpperCase();
+        System.out.print("Número de cuenta destino: ");
+        int cuentaDestinoNum = scanner.nextInt();
 
-            Scanner scanner = new Scanner(System.in);
+        // Monto a transferir
+        System.out.print("\n💰 Monto a transferir: ");
+        int monto = scanner.nextInt();
 
-            // Pedir datos de la cuenta de origen
-            System.out.println("🔹 Introduce los datos de la cuenta que debe transferire");
-            System.out.print("numero DNI : ");
-            int DNInum = scanner.nextInt();
-            scanner.nextLine();  // Limpiar buffer
+        // Buscar cuentas en los clientes
+        Cuenta cuentaOrigen = null;
+        Cuenta cuentaDestino = null;
 
-            System.out.print("Letra del DNI : ");
-            String letraDNI = scanner.nextLine().toUpperCase();
-
-            System.out.print("Número de cuenta : ");
-            int cuentaabono = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
-
-            // Pedir datos de la cuenta de destino
-            System.out.println("\n🔹 Introduce los datos de la cuenta que debe recibir");
-            System.out.print("numero DNI : ");
-            int dniNUMdestino = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
-
-            System.out.print("Letra del DNI : ");
-            String letraDNIDestino = scanner.nextLine().toUpperCase();
-
-            System.out.print("Número de cuenta del destinatario: ");
-            int cuentaDestino = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
-
-            // Pedir monto a transferir
-            System.out.print("\n💰 cantidad a transferir : ");
-            int monto = scanner.nextInt();
-
-            Cuenta cuentaSalida = null;
-            Cuenta cuentaEntrada = null;
-
-            // Buscar las cuentas en el array de clientes
-            for (PersonasCuenta persona : arrayclientes) {
-                if (persona != null) {
-                    // Buscar cuenta de origen
-                    if (persona.getNumDNI() == DNInum && persona.getletraDNI().equalsIgnoreCase(letraDNI)) {
-                        for (Cuenta cuenta : persona.getCuentascorrientes()) {
-                            if (cuenta != null && cuenta.getNumerocuenta() == cuentaabono) {
-                                cuentaSalida = cuenta;
-                            }
+        for (PersonasCuenta persona : arrayClientes) {
+            if (persona != null) {
+                for (Cuenta cuenta : persona.getCuentascorrientes()) {
+                    if (cuenta != null) {
+                        if (persona.getNumDNI() == dniOrigen && persona.getletraDNI().equals(letraOrigen) && cuenta.getNumerocuenta() == cuentaOrigenNum) {
+                            cuentaOrigen = cuenta;
                         }
-                    }
-
-                    // Buscar cuenta de destino
-                    if (persona.getNumDNI() == dniNUMdestino && persona.getletraDNI().equalsIgnoreCase(letraDNIDestino)) {
-                        for (Cuenta cuenta : persona.getCuentascorrientes()) {
-                            if (cuenta != null && cuenta.getNumerocuenta() == cuentaDestino) {
-                                cuentaEntrada = cuenta;
-                            }
+                        if (persona.getNumDNI() == dniDestino && persona.getletraDNI().equals(letraDestino) && cuenta.getNumerocuenta() == cuentaDestinoNum) {
+                            cuentaDestino = cuenta;
                         }
                     }
                 }
             }
-
-            // Validaciones
-            if (cuentaSalida == null) {
-                System.out.println(" La cuenta de origen no existe.");
-                return;
-            }
-            if (cuentaEntrada == null) {
-                System.out.println(" La cuenta de destino no existe.");
-                return;
-            }
-            if (cuentaSalida.getSaldodisponible() < monto) {
-                System.out.println(" Saldo insuficiente en la cuenta de origen.");
-                return;
-            }
-
-            // Realizar la transferencia
-            cuentaSalida.recibos(monto);  // Restar dinero de la cuenta de origen
-            cuentaEntrada.abonos(monto);  // Sumar dinero a la cuenta de destino
-
-            System.out.println("Transferencia de " + monto + " realizada con éxito.");
-            System.out.println("Nuevo saldo en cuenta origen (" + cuentaabono + "): " + cuentaSalida.getSaldodisponible());
-            System.out.println("Nuevo saldo en cuenta destino (" + cuentaDestino + "): " + cuentaEntrada.getSaldodisponible());
         }
 
+        // Realizar la transferencia solo si ambas cuentas fueron encontradas
+        if (cuentaOrigen != null && cuentaDestino != null) {
+            if (cuentaOrigen.getSaldodisponible() >= monto) {
+                cuentaOrigen.recibos(-monto);  // Restar saldo al remitente
+                cuentaDestino.abonos(monto);   // Sumar saldo al destinatario
+                System.out.println("\n✅ Transferencia completada con éxito.");
+            } else {
+                System.out.println("\n Saldo insuficiente para la transferencia.");
+            }
+        } else {
+            System.out.println("\n Una o ambas cuentas no existen.");
+        }
     }
+
+
+    public static void imprimirMorosos(PersonasCuenta[] arrayClientes) {
+        System.out.println("🔎 Buscando personas morosas...\n");
+        boolean hayMorosos = false;
+
+        for (PersonasCuenta persona : arrayClientes) {
+            if (persona != null) {
+                boolean personaEsMorosa = false; // Verifica si al menos una cuenta de la persona es morosa
+                for (Cuenta cuenta : persona.getCuentascorrientes()) {
+                    if (cuenta != null && cuenta.getSaldodisponible() < 0) {
+                        if (!personaEsMorosa) {
+                            System.out.println("⚠️  Persona morosa encontrada:");
+                            System.out.println("   DNI: " + persona.getNumDNI() + persona.getletraDNI());
+                            personaEsMorosa = true;
+                        }
+                        System.out.println("   Cuenta: " + cuenta.getNumerocuenta() + " - Saldo: " + cuenta.getSaldodisponible() + "€");
+                        hayMorosos = true;
+                    }
+                }
+                if (personaEsMorosa) {
+                    System.out.println();
+                }
+            }
+        }
+
+        if (!hayMorosos) {
+            System.out.println("✅ No hay personas morosas registradas.");
+        }
+    }
+
+
+}
 
 
