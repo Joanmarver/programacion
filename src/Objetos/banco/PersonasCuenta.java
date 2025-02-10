@@ -1,7 +1,4 @@
-package Objetos;
-
-import java.util.Arrays;
-import java.util.Locale;
+package Objetos.banco;
 
 public class PersonasCuenta {
     private  String  letraDNI;

@@ -1,4 +1,4 @@
-package Objetos;
+package Objetos.banco;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -193,7 +193,7 @@ public class mainbanco {
         int cuentaDestinoNum = scanner.nextInt();
 
         // Monto a transferir
-        System.out.print("\n💰 Monto a transferir: ");
+        System.out.print("\n Monto a transferir: ");
         int monto = scanner.nextInt();
 
         // Buscar cuentas en los clientes
@@ -220,7 +220,7 @@ public class mainbanco {
             if (cuentaOrigen.getSaldodisponible() >= monto) {
                 cuentaOrigen.recibos(-monto);  // Restar saldo al remitente
                 cuentaDestino.abonos(monto);   // Sumar saldo al destinatario
-                System.out.println("\n✅ Transferencia completada con éxito.");
+                System.out.println("\n Transferencia completada con éxito.");
             } else {
                 System.out.println("\n Saldo insuficiente para la transferencia.");
             }
@@ -240,7 +240,7 @@ public class mainbanco {
                 for (Cuenta cuenta : persona.getCuentascorrientes()) {
                     if (cuenta != null && cuenta.getSaldodisponible() < 0) {
                         if (!personaEsMorosa) {
-                            System.out.println("⚠️  Persona morosa encontrada:");
+                            System.out.println("Persona morosa encontrada:");
                             System.out.println("   DNI: " + persona.getNumDNI() + persona.getletraDNI());
                             personaEsMorosa = true;
                         }
@@ -255,7 +255,7 @@ public class mainbanco {
         }
 
         if (!hayMorosos) {
-            System.out.println("✅ No hay personas morosas registradas.");
+            System.out.println(" No hay personas morosas registradas.");
         }
     }
 
