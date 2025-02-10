@@ -69,7 +69,7 @@ public class Persona {
     }
     // METODO MAYOR DE EDAD
     public void isAdult(){
-        if (edad >= Adultage){
+        if (this.edad >= Adultage){
             System.out.println("La persona llamada " + nombre + " es mayor de edad");
         }else {
             System.out.println("la persona llamada " + nombre + " es menor de edad ");
@@ -85,7 +85,7 @@ public class Persona {
     }
     // METODO DIFERENCIA DE EDAD
     public int ageDifference(Persona personados){
-        int diferenciaedad =  edad -  personados.edad;
+        int diferenciaedad =  this.edad -  personados.edad;
         return diferenciaedad;
     }
     public boolean dnicorrecto(String letraDNI, int numDNI){

@@ -57,11 +57,13 @@ public class PersonasCuenta {
         return cuentaalcanzada;
     }
 
-    public void añadircuenta(Cuenta[] cuentascorrientes, PersonasCuenta persona){
+    //quitar persona de los parámetros
+    //REVISAR
+    public void añadircuenta(Cuenta[] cuentascorrientes2, PersonasCuenta persona2){
         boolean cambiocuenta = limiteCuentas();
         boolean cuentaagregada= false;
         if (cambiocuenta){
-            Cuenta cuenta = new Cuenta(persona);
+            Cuenta cuenta = new Cuenta(this);
             for (int i =0; i<cuentascorrientes.length && !cuentaagregada;i++){
                 if (cuentascorrientes[i]==null){
                   cuentascorrientes[i]=cuenta;
@@ -70,7 +72,7 @@ public class PersonasCuenta {
             }
         }
     }
-    public boolean moroso(Cuenta[] cuentascorrientes , PersonasCuenta persona){
+    public boolean moroso(Cuenta[] cuentascorrientes2 , PersonasCuenta persona){
         boolean moroso= false;
         for (Cuenta cuenta: cuentascorrientes){
             if (cuenta!=null){
