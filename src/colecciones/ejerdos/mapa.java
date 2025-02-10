@@ -12,6 +12,21 @@ public class mapa {
         Map<String,Persona> usuarios= new HashMap<>();
         System.out.println("bienvenido");
         System.out.println("1.darse de alta/baja\n" + "2.mostrar datos de un Usuario\n" + "3.modificar usuarios");
+        int respuesta = userprint.nextInt();
+        switch (respuesta){
+            case 1:{
+
+                break;
+            }
+            case 2:{
+                break;
+            }
+            case 3:{
+                break;
+            }
+        }
+    }
+    public static void alta(){
 
     }
 
