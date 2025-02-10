@@ -100,6 +100,7 @@ public class mapa {
             int age=userprint.nextInt();
             user.setNombre(name);
             user.setEdad(age);
+            System.out.println("datos cambiados");
         }
     }
 
