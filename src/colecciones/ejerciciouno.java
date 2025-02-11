@@ -22,6 +22,7 @@ public class ejerciciouno {
                 break;
             }
             case 3:{
+                productosnocomprados(carrocompra,listacompra);
                 break;
             }
             default:
