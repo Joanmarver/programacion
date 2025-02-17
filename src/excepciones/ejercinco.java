@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ejercinco {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         Scanner userprint=new Scanner(System.in);
         Random random = new Random();
         int p = random.nextInt();
@@ -13,11 +13,11 @@ public class ejercinco {
         int answer = userprint.nextInt();
         switch (answer){
             case 1:{
-
+                imprimePositivo(n);
                 break;
             }
             case 2:{
-                imprimeNegativo(n);
+                imprimeNegativo(p);
                 break;
             }
             case 3:{
@@ -30,13 +30,19 @@ public class ejercinco {
     }
     public static void imprimePositivo(int p) throws Exception{
         if (p<0){
-            System.out.println("error. el numero es negativo");
+            throw new Exception("error. el numero es negativo");
+        }else {
+            System.out.println(p);
         }
 
 
 
     }
-    public static void imprimeNegativo(int n){
-
+    public static void imprimeNegativo(int n)throws Exception{
+        if (n>0){
+            throw new Exception("error. el numero es negativo");
+        }else {
+            System.out.println(n);
+        }
     }
 }
