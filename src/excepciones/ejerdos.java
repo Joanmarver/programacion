@@ -7,10 +7,11 @@ public class ejerdos {
     public static void main(String[] args) {
         Scanner userprint= new Scanner(System.in);
         System.out.println("dime un numero");
-        int numberOne= userprint.nextInt();
-        System.out.println("dime otro numero");
-        int numberTwo= userprint.nextInt();
         try {
+            int numberOne= userprint.nextInt();
+            System.out.println("dime otro numero");
+            int numberTwo= userprint.nextInt();
+
             int result= numberOne/numberTwo;
             System.out.println(result);
         }catch (InputMismatchException InvalidatedNumber){
