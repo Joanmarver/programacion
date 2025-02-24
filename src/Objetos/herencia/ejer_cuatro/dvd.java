@@ -25,6 +25,14 @@ public class dvd extends Ficha {
     public void setTipo(tipoDVD tipo) {
         this.tipo = tipo;
     }
+
+    @Override
+    public String toString() {
+        return "dvd{" +
+                "ano=" + ano +
+                ", tipo=" + tipo +
+                '}';
+    }
 }
 enum tipoDVD{
     ANIMACION, ACCION, DOCUMENTAL, CIENCIA, FICCION
