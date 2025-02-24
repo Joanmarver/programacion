@@ -33,7 +33,4 @@ public class revistas extends Ficha{
                 ", ano=" + ano +
                 '}';
     }
-    public int edad(){
-
-    }
 }
