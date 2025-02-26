@@ -61,6 +61,8 @@ public class main {
         System.out.println("dime el dni:");
         userprint.nextLine();
         String dni= userprint.nextLine();
+
+
         for (int i =0; i < cola.size();i++){
             if (cola.get(i).getDni().equalsIgnoreCase(dni)){
                 cola.remove(i);

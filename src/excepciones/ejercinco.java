@@ -33,6 +33,7 @@ public class ejercinco {
             System.out.println(ex.getMessage());
         }
 
+
     }
     public static void imprimePositivo(int p) throws Exception{
         if (p<0){
@@ -51,4 +52,6 @@ public class ejercinco {
             System.out.println(n);
         }
     }
+
 }
+

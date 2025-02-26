@@ -14,5 +14,6 @@ public class main {
             System.out.println(figura.area());
             System.out.println(figura.perimetro());
         }
+
     }
 }

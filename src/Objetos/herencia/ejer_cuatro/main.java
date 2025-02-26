@@ -5,11 +5,10 @@ import java.util.List;
 
 public class main {
     public static void main(String[] args) {
-        List<Ficha> libros= new ArrayList<>();
-        libros.add(new dvd(24,"beatless",2024,tipoDVD.ACCION));
-        for (Ficha ficha:libros){
-            System.out.println(ficha);
-        }
+        List<Ficha> lista= new ArrayList<>();
+        lista.add(new dvd(24,"beatless",2024,tipoDVD.ACCION));
+        lista.add(new libros(2,"la casa","ameva","josep"));
+        System.out.println(lista);
 
     }
 }
