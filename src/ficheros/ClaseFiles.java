@@ -1,4 +1,4 @@
-package tema7;
+package ficheros;
 
 import java.io.File;
 import java.io.IOException;

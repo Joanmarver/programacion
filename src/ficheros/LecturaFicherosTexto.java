@@ -1,4 +1,4 @@
-package tema7;
+package ficheros;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
