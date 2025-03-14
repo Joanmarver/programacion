@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-        File nuevoarchivo = new File("archivo_B.txt");
+
         Path Patharchivo = Paths.get("archivo_B.txt");
         Scanner scanner = new Scanner(System.in);
 
