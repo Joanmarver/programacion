@@ -6,9 +6,9 @@ import java.util.List;
 public class alumno {
     private String nombre;
     private String apellido;
-    List<String>notas= new ArrayList<>();
+    List<Double>notas= new ArrayList<>();
 
-    public alumno(String nombre, String apellido, List<String> notas) {
+    public alumno(String nombre, String apellido, List<Double> notas) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.notas = notas;
@@ -30,11 +30,11 @@ public class alumno {
         this.apellido = apellido;
     }
 
-    public List<String> getNotas() {
+    public List<Double> getNotas() {
         return notas;
     }
 
-    public void setNotas(List<String> notas) {
+    public void setNotas(List<Double> notas) {
         this.notas = notas;
     }
 
@@ -47,11 +47,11 @@ public class alumno {
                 '}';
     }
 
-    public int media(){
-        int media=0;
-        int notatotal=0;
-        for (String nota: this.notas) {
-            notatotal+= Integer.parseInt(nota);
+    public double media(){
+        double media=0;
+        double notatotal=0;
+        for (double nota: this.notas) {
+        notatotal +=nota;
 
         }
         return notatotal/this.notas.size();

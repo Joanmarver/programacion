@@ -20,9 +20,9 @@ public class main {
                     String [] lineas= line.split(" ");
                     String nombre= lineas[0];
                     String apellidos= lineas[1];
-                    List<String> notas= new ArrayList<>();
+                    List<Double> notas= new ArrayList<>();
                     for (int i = 2; i< lineas.length;i++){
-                        notas.add(lineas[i]);
+                        notas.add(Double.parseDouble(lineas[i]));
                     }
                     alumno.add(new alumno(nombre,apellidos,notas));
                 }
@@ -31,7 +31,7 @@ public class main {
             e.printStackTrace();
         }
         for (alumno alumnos: alumno){
-            System.out.println(alumno.toString());
+            System.out.println(alumnos.getNombre() + "  " + alumnos.getApellido() + " | Nota media : " + alumnos.media());
         }
 
     }
