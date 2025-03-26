@@ -1,7 +1,7 @@
 package Objetos.herencia.ejerone;
 
 // Clase base Vehiculo
-class Vehiculo {
+class  Vehiculo {
     private String marca;
     private String modelo;
     private int anio;
