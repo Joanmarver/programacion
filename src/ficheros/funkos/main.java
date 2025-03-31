@@ -42,7 +42,7 @@ public class main {
             System.out.println(funko);
         }
     }
-    public static void aniadirFunko(List<Funko> stock,){
+    public static void aniadirFunko(List<Funko> stock){
         System.out.println("dime");
     }
 }
