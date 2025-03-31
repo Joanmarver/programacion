@@ -11,7 +11,7 @@ public class Ejer_one {
     public static void main(String[] args) {
         List<String>fichero= new ArrayList<>();
         String numfichero= "resources/Documentos/numeros.txt";
-        long nummax=0;
+        long nummax=Integer.MIN_VALUE;
         long nummin=999999999;
         int compare=0;
         try {
