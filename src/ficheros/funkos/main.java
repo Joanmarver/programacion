@@ -4,16 +4,54 @@ import ficheros.serializacionejer.ejerfour.Persona;
 import jdk.swing.interop.SwingInterOpUtils;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String funkocsv="resources/funko/funkos.csv";
         List<Funko> stock = new ArrayList<>();
-        stockfunkos(stock,funkocsv);
+        leercsv(stock,funkocsv);
+        boolean inicio=true;
+        while (inicio){
+        System.out.println("1. Añadir Funko\n"+"2.Borrar funko\n"+"3.Mostrar funkos\n"+ "4.Mostrar Funko mas caro\n"+"5.Mostrar media de precios\n"+ "6.Mostrar funkos por modelos\n"+ "7.Funkos 2023\n" +"8.salir");
+        int respuesta=scanner.nextInt();
+        switch (respuesta){
+            case 1:{
+                aniadirFunko(stock,scanner);
+                break;
+            }
+            case 2:{
+                eliminarFunko(stock,scanner);
+                break;
+            }
+            case 3:{
+                stockfunkos(stock,funkocsv);
+                break;
+            }
+            case 4:{
+                funkCaro(stock);
+                break;
+            }
+            case 5:{
+                double media = mediaFunkos(stock);
+                System.out.println(media);
+                break;
+            }
+            case 6:{
+                funkosPorModelo(stock);
+                break;
+            }
+            case 7:{
+                funkos2023(stock);
+            }
+            case 8:{
+                inicio=false;
+                break;
+            }
+        }
+        }
+
 
 
     }
@@ -38,7 +76,7 @@ public class main {
         }
     }
     public static void stockfunkos (List<Funko> stock, String archivocsv){
-        leercsv(stock, archivocsv);
+
         for (Funko funko: stock){
             System.out.println(funko);
         }
@@ -85,6 +123,20 @@ public class main {
             e.getMessage();
         }
     }
+    public static void funkCaro(List<Funko> stock){
+        double funkoCaro=0;
+        for (Funko funko : stock){
+            if (funkoCaro<funko.getPrecio()){
+                funkoCaro=funko.getPrecio();
+            }
+        }
+        System.out.println("funkos mas caros :");
+        for (Funko funko: stock){
+            if (funko.getPrecio()==funkoCaro){
+                System.out.println(funko);
+            }
+        }
+    }
     public static boolean validar(List<Funko> stock, String codigo){
         for (Funko funko : stock){
             if (funko.getCodigo().equals(codigo)){
@@ -99,7 +151,28 @@ public class main {
         for (Funko funko: stock){
             total += funko.getPrecio();
         }
-        double media = total / stock.size();
-        return media;
+        return total / stock.size();
+
+    }
+    public static void funkosPorModelo(List<Funko>stock){
+        Map<String,List<Funko>> funkosModelo= new HashMap<>();
+        for (Funko funko: stock){
+            funkosModelo.putIfAbsent(funko.getCodigo(), new ArrayList<>());
+            funkosModelo.get(funko.getModelo()).add(funko);
+        }
+        for (String modelo: funkosModelo.keySet()){
+            System.out.println("modelo: " + modelo);
+            for (Funko funko : funkosModelo.get(modelo)){
+            System.out.println(funko.getNombre());
+            }
+        }
+    }
+    public static void funkos2023(List<Funko> stock){
+
+        for (Funko funko: stock){
+            if (funko.getAnio().startsWith("2023")){
+                System.out.println(funko);
+            }
+        }
     }
 }
