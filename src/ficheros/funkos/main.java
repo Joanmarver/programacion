@@ -157,7 +157,7 @@ public class main {
     public static void funkosPorModelo(List<Funko>stock){
         Map<String,List<Funko>> funkosModelo= new HashMap<>();
         for (Funko funko: stock){
-            funkosModelo.putIfAbsent(funko.getCodigo(), new ArrayList<>());
+            funkosModelo.putIfAbsent(funko.getModelo(), new ArrayList<>());
             funkosModelo.get(funko.getModelo()).add(funko);
         }
         for (String modelo: funkosModelo.keySet()){
