@@ -1,17 +1,18 @@
-package ficheros.funkos;
+package ficheros.funkos.funkosnormal;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Funko implements Serializable {
     private String codigo;
     private String modelo;
     private double precio;
-    private String anio;
+    private LocalDate anio;
     private String nombre;
 
 
 
-    public Funko( String codigo,String nombre,String modelo, double precio, String anio) {
+    public Funko( String codigo,String nombre,String modelo, double precio, LocalDate anio) {
         this.nombre=nombre;
         this.modelo = modelo;
         this.codigo=codigo;
@@ -51,23 +52,21 @@ public class Funko implements Serializable {
         this.precio = precio;
     }
 
-    public String getAnio() {
+    public LocalDate getAnio() {
         return anio;
     }
 
-    public void setAnio(String anio) {
+    public void setAnio(LocalDate anio) {
         this.anio = anio;
     }
 
     @Override
     public String toString() {
-        return "Funko{" +
-                "codigo='" + codigo + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", precio=" + precio +
-                ", anio='" + anio + '\'' +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return codigo + "," +
+                nombre + "," +
+                modelo + "," +
+                precio + "," +
+                anio + ",";
     }
 
     public void setPrecio(int precio) {

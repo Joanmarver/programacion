@@ -1,15 +1,18 @@
-package ficheros.funkos;
-
-import ficheros.serializacionejer.ejerfour.Persona;
-import jdk.swing.interop.SwingInterOpUtils;
+package ficheros.funkos.funkosnormal;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDate;
 import java.util.*;
 
 public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String funkocsv="resources/funko/funkos.csv";
+        Path filePath = Paths.get(funkocsv);
         List<Funko> stock = new ArrayList<>();
         leercsv(stock,funkocsv);
         boolean inicio=true;
@@ -44,13 +47,16 @@ public class main {
             }
             case 7:{
                 funkos2023(stock);
+                break;
             }
             case 8:{
                 inicio=false;
                 break;
             }
         }
+        escribircsv(stock,filePath);
         }
+
 
 
 
@@ -66,7 +72,7 @@ public class main {
               String nombre= valores[1];
               String modelo= valores[2];
               double precio= Double.parseDouble(valores[3]);
-              String anio= valores[4];
+              LocalDate anio= LocalDate.parse(valores[4]);
               stock.add(new Funko(codigo,nombre,modelo,precio,anio));
 
 
@@ -84,6 +90,7 @@ public class main {
     public static void aniadirFunko(List<Funko> stock, Scanner scanner){
         try{
             System.out.println("dime el codigo del funko");
+            scanner.nextLine();
             String codigo = scanner.nextLine();
            if (!validar(stock,codigo)){
                System.out.println("Nombre del funko:");
@@ -91,10 +98,10 @@ public class main {
                System.out.println("dime el modelo:");
                String modelo =  scanner.nextLine();
                System.out.println("dime el precio");
-               int precio= scanner.nextInt();
+               double precio= scanner.nextDouble();
                System.out.println("dime el año :");
                scanner.nextLine();
-               String anio= scanner.nextLine();
+               LocalDate anio= LocalDate.parse(scanner.nextLine());
                stock.add(new Funko(codigo,nombre,modelo,precio,anio));
            }else {
                System.out.println("el funko ya existe o has colocado mas el codigo");
@@ -111,6 +118,7 @@ public class main {
     public  static void eliminarFunko(List<Funko> stock, Scanner scanner){
         try{
             System.out.println("dime el codigo del funko");
+            scanner.nextLine();
             String codigo = scanner.nextLine();
             for (Funko funko : stock){
                 if (funko.getCodigo().equals(codigo)){
@@ -168,11 +176,27 @@ public class main {
         }
     }
     public static void funkos2023(List<Funko> stock){
-
+        List<Funko>funkofiltrado=new ArrayList<>();
         for (Funko funko: stock){
-            if (funko.getAnio().startsWith("2023")){
-                System.out.println(funko);
+            if (funko.getAnio().getYear()==2023){
+               funkofiltrado.add(funko);
             }
+        }
+        for (Funko funko: funkofiltrado){
+            System.out.println(funko);
+        }
+    }
+    public static void escribircsv(List<Funko> stock, Path archivocsv){
+        List<String>lineas= new ArrayList<>();
+        for (Funko funko : stock){
+            lineas.add(funko.toString());
+        }
+        try {
+            //Escribe contenido al fichero, borrando todo lo que haya
+            Files.write(archivocsv,lineas);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
