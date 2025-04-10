@@ -43,4 +43,7 @@ public abstract class Videojuego implements Serializable {
         }
         this.nota = nota;
     }
+
+    @Override
+    public abstract String toString();
 }
