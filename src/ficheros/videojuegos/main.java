@@ -46,6 +46,10 @@ public class main {
         System.out.println("videojuego a añadir :");
         System.out.println("1. Videojuego Digital\n" + "2. Videojuego Fisico");
         int game= scanner.nextInt();
-        System.out.println("");
+        System.out.println("plataforma : ");
+        String plataforma= scanner.nextLine();
+        System.out.println("nota :");
+        int nota = scanner.nextInt();
+        if (game==1)
     }
 }
