@@ -117,7 +117,7 @@ public class main {
     public static void cargarRanking (List<Videojuego>ranking){
         String filename= "resources/Documentos/Videojuego/videojuego.dat";
         boolean inicio=true;
-
+        ranking.clear();
         try(ObjectInputStream ObjectIS= new ObjectInputStream(new FileInputStream(filename))){
             while (inicio){
                 try{
@@ -138,13 +138,19 @@ public class main {
     }
 
     public static void eliminarVideojuego(Scanner scanner, List<Videojuego>ranking){
-        System.out.println("dime el nombre del videojuego");
-        scanner.nextLine();
-        String name = scanner.nextLine();
-        for (Videojuego juego: ranking){
-            if (juego.getTitulo().equals(name)){
-                ranking.remove(juego);
+        try {
+
+            System.out.println("dime el nombre del videojuego");
+            scanner.nextLine();
+            String name = scanner.nextLine();
+            for (Videojuego juego : ranking) {
+                if (juego.getTitulo().equals(name)) {
+                    ranking.remove(juego);
+                    break;
+                }
             }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
 
     }
