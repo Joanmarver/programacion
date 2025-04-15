@@ -1,7 +1,5 @@
 package ficheros.videojuegos;
 
-import ficheros.funkos.funkosnormal.Funko;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,28 +15,35 @@ public class main {
         Scanner scanner = new Scanner(System.in);
         List<Videojuego>ranking= new ArrayList<>();
         boolean inicio=true;
+        while (inicio){
         System.out.println("1.Añadir Videojuego\n "+ "2.Mostrar ranking completo\n" + "3. Eliminar videojuego\n"+ "4. Guardar ranking\n"+ "5. Cargar ranking desde fichero\n" + "6. Exportar ranking a texto\n" + "7. salir");
         int respuesta= scanner.nextInt();
-        while (inicio){
+
 
         switch (respuesta){
             case 1:{
+                anadirVideojuego(ranking,scanner);
                 break;
             }
             case 2:{
+                mostrarVideoJuegos(ranking);
                 break;
             }
             case 3:{
+                eliminarVideojuego(scanner,ranking);
                 break;
             }
             case 4:{
+                guardarEnArchivo(ranking);
                 break;
 
             }
             case 5:{
+                cargarRanking(ranking);
                 break;
             }
             case 6:{
+                ficherotxt(ranking);
                 break;
             }
             case 7:{
@@ -49,7 +54,7 @@ public class main {
         }
 
     }
-    public static void añadirVideojuego(List<Videojuego> ranking, Scanner scanner){
+    public static void anadirVideojuego(List<Videojuego> ranking, Scanner scanner){
         Estado estadoJuego;
         System.out.println("videojuego a añadir :");
         System.out.println("1. Videojuego Fisico\n" + "2. Videojuego Digital");
@@ -111,16 +116,18 @@ public class main {
     }
     public static void cargarRanking (List<Videojuego>ranking){
         String filename= "resources/Documentos/Videojuego/videojuego.dat";
+        boolean inicio=true;
 
         try(ObjectInputStream ObjectIS= new ObjectInputStream(new FileInputStream(filename))){
-            while (true){
+            while (inicio){
                 try{
                     Videojuego juego = (Videojuego) ObjectIS.readObject();
                     ranking.add(juego);
                 } catch (EOFException e) {
-                    System.out.println(e.getMessage());
+                    inicio=false;
                 }
             }
+
 
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
@@ -142,14 +149,14 @@ public class main {
 
     }
     public static void ficherotxt(List<Videojuego> ranking ){
-        Path path= Paths.get("resources/documentos/Videojuego/videojuego.txt");
+        Path path= Paths.get("resources/Documentos/Videojuego/videojuego.txt");
         try {
             for (Videojuego juego: ranking){
                 Files.writeString(path, juego.toString(), StandardOpenOption.APPEND);
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
