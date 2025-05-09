@@ -3,21 +3,70 @@ package accesoBDD.basepilotos;
 import java.util.Date;
 
 public class Piloto {
-    private int driverid;
-    private String code;
     private String forename;
     private String surname;
     private Date dob;
     private String ingnationality;
     private String URL;
 
-    public Piloto(int driverid, String code, String forename, String surname, Date dob, String ingnationality, String URL) {
-        this.driverid = driverid;
-        this.code = code;
+    public Piloto(String forename, String surname, Date dob, String ingnationality, String URL) {
+
+
         this.forename = forename;
         this.surname = surname;
         this.dob = dob;
         this.ingnationality = ingnationality;
         this.URL = URL;
+    }
+
+    public String getForename() {
+        return forename;
+    }
+
+    public void setForename(String forename) {
+        this.forename = forename;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getIngnationality() {
+        return ingnationality;
+    }
+
+    public void setIngnationality(String ingnationality) {
+        this.ingnationality = ingnationality;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
+
+    @Override
+    public String toString() {
+        return "Piloto{" +
+                ", forename='" + forename + '\'' +
+                ", surname='" + surname + '\'' +
+                ", dob=" + dob +
+                ", ingnationality='" + ingnationality + '\'' +
+                ", URL='" + URL + '\'' +
+                '}';
     }
 }
