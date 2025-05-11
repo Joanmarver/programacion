@@ -75,5 +75,38 @@ public class PilotsCRUD {
             throw new RuntimeException(e);
         }
     }
+    public void ShowPilotClassification (Connection conn ){
+        try{
+            String consulta= "SELECT drivers.forename , SUM(results.points) AS points FROM drivers" +
+                    "JOIN results ON results.driverid=drivers.driverid GROUP BY drivers.driverid , drivers.forename ORDER BY points DESC;";
+            PreparedStatement ps= conn.prepareStatement(consulta);
+            ResultSet rs= ps.executeQuery();
+            while (rs.next()){
+                String nombre= rs.getString("forename");
+                int puntos= rs.getInt("points");
+                System.out.println(nombre + " " + puntos);
+            }
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public void ShowBuildersClassification (Connection conn ){
+        try{
+            String consulta= "SELECT constructors.name , SUM(results.points) AS points FROM constructors " +
+                    "JOIN drivers ON drivers.constructorid=constructors.constructorid" +
+                    "JOIN results ON results.driverid=drivers.driverid GROUP BY constructors.constructorid , constructors.name ORDER BY points DESC;";
+            PreparedStatement ps= conn.prepareStatement(consulta);
+            ResultSet rs= ps.executeQuery();
+            while (rs.next()){
+                String equipo= rs.getString("name");
+                int puntos= rs.getInt("points");
+                System.out.println( equipo + " "+ puntos);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
