@@ -1,17 +1,19 @@
 package accesoBDD.basepilotos;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PilotsCRUD {
-    public void CReatePilot(Piloto piloto){
+    public void CReatePilot(Connection bdd, Piloto piloto){
         int idgen=0;
         java.util.Date fechaUtil = piloto.getDob();
         java.sql.Date fechaSQL = new java.sql.Date(fechaUtil.getTime());
 
-        try(Connection bdd= DriverManager.getConnection("jdbc:postgresql://piloto.cljzaoejhj87.us-east-1.rds.amazonaws.com:5432/hogwarts","postgres","12345678")){
-        String consulta = "INSERT INTO DRIVERS (forename, surname, dob, nationality, url)" +
-                "VALUES (?, ?, ?, ?, ?);";
+
+        try {
+            String consulta = "INSERT INTO DRIVERS (forename, surname, dob, nationality, url)" +
+                    "VALUES (?, ?, ?, ?, ?);";
             PreparedStatement ps= bdd.prepareStatement(consulta);
             ps.setString(1, piloto.getForename());
             ps.setString(2, piloto.getSurname());
@@ -32,4 +34,46 @@ public class PilotsCRUD {
         }
 
     }
+    public Piloto ReadPilot(Connection bdd, int id_piloto){
+        try{
+            String conuslta= "SELECT forename, surname, dob , nationality, url FROM drivers WHERE driverid =?;";
+            PreparedStatement ps= bdd.prepareStatement(conuslta);
+            ps.setInt(1,id_piloto);
+            ResultSet rs= ps.executeQuery();
+            String forename= rs.getString("forename");
+            String surname= rs.getString("surname");
+            Date dob= rs.getDate("dob");
+            String nationality= rs.getString("nationality");
+            String url=rs.getString("url");
+            Piloto piloto= new Piloto(forename,surname,dob,nationality,url);
+            return piloto;
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public ArrayList<Piloto> ReadPilots(Connection bdd, int id_piloto){
+        ArrayList<Piloto>pilotos= new ArrayList<>();
+        try{
+            String conuslta= "SELECT forename, surname, dob , nationality, url FROM drivers;";
+            PreparedStatement ps= bdd.prepareStatement(conuslta);
+            ResultSet rs= ps.executeQuery();
+            while (rs.next()){
+            String forename= rs.getString("forename");
+            String surname= rs.getString("surname");
+            Date dob= rs.getDate("dob");
+            String nationality= rs.getString("nationality");
+            String url=rs.getString("url");
+            Piloto piloto= new Piloto(forename,surname,dob,nationality,url);
+            pilotos.add(piloto);
+            }
+            return pilotos;
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

@@ -5,11 +5,11 @@ import java.util.Date;
 public class Piloto {
     private String forename;
     private String surname;
-    private Date dob;
+    private java.sql.Date dob;
     private String ingnationality;
     private String URL;
 
-    public Piloto(String forename, String surname, Date dob, String ingnationality, String URL) {
+    public Piloto(String forename, String surname, java.sql.Date dob, String ingnationality, String URL) {
 
 
         this.forename = forename;
@@ -39,7 +39,7 @@ public class Piloto {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(java.sql.Date dob) {
         this.dob = dob;
     }
 
