@@ -1,22 +1,47 @@
 package accesoBDD.basepilotos;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Piloto {
     private String forename;
     private String surname;
-    private java.sql.Date dob;
+    private LocalDate dob;
     private String ingnationality;
     private String URL;
+    private int driverid;
+    private String code;
 
-    public Piloto(String forename, String surname, java.sql.Date dob, String ingnationality, String URL) {
 
-
+    public Piloto(String forename, String surname, LocalDate dob, String ingnationality, String URL, String code) {
         this.forename = forename;
         this.surname = surname;
         this.dob = dob;
         this.ingnationality = ingnationality;
         this.URL = URL;
+        this.code = code;
+    }
+
+    public Piloto(String forename, String surname, LocalDate dob, String ingnationality, String URL, int driverid, String code) {
+        this.forename = forename;
+        this.surname = surname;
+        this.dob = dob;
+        this.ingnationality = ingnationality;
+        this.URL = URL;
+        this.driverid = driverid;
+        this.code = code;
+    }
+
+    public void setDriverid(int driverid) {
+        this.driverid = driverid;
+    }
+
+    public int getDriverid() {
+        return driverid;
+    }
+
+    public String getCode() {
+        return code;
     }
 
     public String getForename() {
@@ -35,11 +60,11 @@ public class Piloto {
         this.surname = surname;
     }
 
-    public Date getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(java.sql.Date dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
@@ -62,6 +87,7 @@ public class Piloto {
     @Override
     public String toString() {
         return "Piloto{" +
+                ", driver id ='"+ driverid + '\''+
                 ", forename='" + forename + '\'' +
                 ", surname='" + surname + '\'' +
                 ", dob=" + dob +
