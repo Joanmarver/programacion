@@ -159,8 +159,9 @@ public class main {
         try {
             for (Videojuego juego: ranking){
                 Files.writeString(path, juego.toString(), StandardOpenOption.APPEND);
-            }
+                String espacio="\n";
 
+            }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

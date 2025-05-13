@@ -1,0 +1,1 @@
+VideojuegoDigital{titulo='joan', plataforma='xbox', nota=8tiendaOnline='lol', tamañoGB=27.0}VideojuegoDigital{titulo='joan', plataforma='xbox', nota=8tiendaOnline='lol', tamañoGB=27.0}VideojuegoFisico{titulo='fifa', plataforma='pc', nota=9tiendaCompra='na', estado=NUEVO}

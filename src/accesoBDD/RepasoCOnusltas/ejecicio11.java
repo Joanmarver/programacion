@@ -11,7 +11,6 @@ public class ejecicio11 {
             ResultSet res=p.executeQuery();
             while (res.next()){
                 String nombre=res.getString("nombre");
-
                 System.out.println(nombre );
             }
         }catch (SQLException e){
